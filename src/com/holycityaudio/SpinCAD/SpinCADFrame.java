@@ -1089,6 +1089,11 @@ public class SpinCADFrame extends JFrame {
 		final JProgressBar progressBar_2 = new JProgressBar();
 		final JProgressBar progressBar_1 = new JProgressBar();
 		final JProgressBar progressBar = new JProgressBar();
+		final JProgressBar ramp0Bar = new JProgressBar();
+		final JProgressBar ramp1Bar = new JProgressBar();
+		final JProgressBar sine0Bar = new JProgressBar();
+		final JProgressBar sine1Bar = new JProgressBar();
+		
 
 		class Task extends SwingWorker<Void, Void> {
 			/*
@@ -1141,10 +1146,40 @@ public class SpinCADFrame extends JFrame {
 			progressBar_1.setString("Delay RAM Used");
 			progressBar_1.setStringPainted(true);
 			progressBar_1.setBorder(border);
+			
+			Dimension pBDim = progressBar_1.getSize();
+			int y = (int) pBDim.getHeight();
+			pBDim.setSize(4, y);
+
+			ramp0Bar.setString("Ramp 0");
+			ramp0Bar.setBackground(Color.GREEN);
+//			ramp0Bar.setSize(pBDim);
+//			ramp0Bar.setMaximumSize(pBDim);
+			ramp0Bar.setStringPainted(true);
+			ramp0Bar.setBorder(border);
+
+			ramp1Bar.setString("Ramp 1");
+			ramp1Bar.setBackground(Color.GREEN);
+			ramp1Bar.setStringPainted(true);
+			ramp1Bar.setBorder(border);
+
+			sine0Bar.setString("Sine 0");
+			sine0Bar.setBackground(Color.GREEN);
+			sine0Bar.setStringPainted(true);
+			sine0Bar.setBorder(border);
+
+			sine1Bar.setString("Sine 1");
+			sine1Bar.setBackground(Color.GREEN);
+			sine1Bar.setStringPainted(true);
+			sine1Bar.setBorder(border);
 
 			add(progressBar_2);
 			add(progressBar);
 			add(progressBar_1);
+			add(ramp0Bar);
+			add(ramp1Bar);
+			add(sine0Bar);
+			add(sine1Bar);
 		}
 
 		/**
