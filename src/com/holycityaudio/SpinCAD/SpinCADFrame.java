@@ -40,6 +40,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
@@ -1089,12 +1090,11 @@ public class SpinCADFrame extends JFrame {
 		final JProgressBar progressBar_2 = new JProgressBar();
 		final JProgressBar progressBar_1 = new JProgressBar();
 		final JProgressBar progressBar = new JProgressBar();
-		final JProgressBar ramp0Bar = new JProgressBar();
-		final JProgressBar ramp1Bar = new JProgressBar();
-		final JProgressBar sine0Bar = new JProgressBar();
-		final JProgressBar sine1Bar = new JProgressBar();
+		final JTextField ramp0Bar = new JTextField("RMP 0", 6);
+		final JTextField ramp1Bar = new JTextField("RMP 1", 6);
+		final JTextField sine0Bar = new JTextField("SIN 0", 6);
+		final JTextField sine1Bar = new JTextField("SIN 1", 6);
 		
-
 		class Task extends SwingWorker<Void, Void> {
 			/*
 			 * Main task. Executed in background thread.
@@ -1147,35 +1147,19 @@ public class SpinCADFrame extends JFrame {
 			progressBar_1.setStringPainted(true);
 			progressBar_1.setBorder(border);
 			
-			Dimension pBDim = progressBar_1.getSize();
-			int y = (int) pBDim.getHeight();
-			pBDim.setSize(4, y);
-
-			ramp0Bar.setString("Ramp 0");
 			ramp0Bar.setBackground(Color.GREEN);
-//			ramp0Bar.setSize(pBDim);
-//			ramp0Bar.setMaximumSize(pBDim);
-			ramp0Bar.setStringPainted(true);
-			ramp0Bar.setBorder(border);
-
-			ramp1Bar.setString("Ramp 1");
+			ramp0Bar.setForeground(Color.BLUE);
 			ramp1Bar.setBackground(Color.GREEN);
-			ramp1Bar.setStringPainted(true);
-			ramp1Bar.setBorder(border);
-
-			sine0Bar.setString("Sine 0");
+			ramp1Bar.setForeground(Color.BLUE);
 			sine0Bar.setBackground(Color.GREEN);
-			sine0Bar.setStringPainted(true);
-			sine0Bar.setBorder(border);
-
-			sine1Bar.setString("Sine 1");
+			sine0Bar.setForeground(Color.BLUE);
 			sine1Bar.setBackground(Color.GREEN);
-			sine1Bar.setStringPainted(true);
-			sine1Bar.setBorder(border);
-
+			sine1Bar.setForeground(Color.BLUE);
+			
 			add(progressBar_2);
 			add(progressBar);
 			add(progressBar_1);
+			
 			add(ramp0Bar);
 			add(ramp1Bar);
 			add(sine0Bar);
