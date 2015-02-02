@@ -1221,7 +1221,7 @@ public class SpinCADFrame extends JFrame {
 			}
 			progressBar_1.setValue(ramUsed);
 
-			int rampLFO_0 = SpinCADModel.getRenderBlock().countLFOReferences("LoadRampLFO(0");
+			int rampLFO_0 = SpinCADModel.countLFOReferences("LoadRampLFO(0");
 			if(rampLFO_0 == 0) {
 				ramp0Bar.setBackground(Color.GREEN);
 				ramp0Bar.setForeground(Color.black);
@@ -1233,7 +1233,7 @@ public class SpinCADFrame extends JFrame {
 				ramp0Bar.setForeground(Color.white);
 			}
 
-			int rampLFO_1 = SpinCADModel.getRenderBlock().countLFOReferences("LoadRampLFO(1");
+			int rampLFO_1 = SpinCADModel.countLFOReferences("LoadRampLFO(1");
 			if(rampLFO_1 == 0) {
 				ramp1Bar.setBackground(Color.GREEN);
 				ramp1Bar.setForeground(Color.black);
@@ -1245,7 +1245,7 @@ public class SpinCADFrame extends JFrame {
 				ramp1Bar.setForeground(Color.white);
 			}
 			
-			int sineLFO_0 = SpinCADModel.getRenderBlock().countLFOReferences("LoadSinLFO(0");
+			int sineLFO_0 = SpinCADModel.countLFOReferences("LoadSinLFO(0");
 			if(sineLFO_0 == 0) {
 				sine0Bar.setBackground(Color.GREEN);
 				sine0Bar.setForeground(Color.black);
@@ -1257,7 +1257,7 @@ public class SpinCADFrame extends JFrame {
 				sine0Bar.setForeground(Color.white);
 			}
 			
-			int sineLFO_1 = SpinCADModel.getRenderBlock().countLFOReferences("LoadSinLFO(1");
+			int sineLFO_1 = SpinCADModel.countLFOReferences("LoadSinLFO(1");
 			if(sineLFO_1 == 0) {
 				sine1Bar.setBackground(Color.GREEN);
 				sine1Bar.setForeground(Color.black);

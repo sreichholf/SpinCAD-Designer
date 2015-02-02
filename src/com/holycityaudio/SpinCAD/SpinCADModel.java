@@ -189,10 +189,6 @@ public class SpinCADModel implements Serializable {
 		realign();
 		int i = generateCode();
 		ElmProgram.checkCodeLen();
-		int rampLFO_0 = getRenderBlock().countLFOReferences("LoadRampLFO(0");
-		int rampLFO_1 = getRenderBlock().countLFOReferences("LoadRampLFO(1");
-		int sineLFO_0 = getRenderBlock().countLFOReferences("LoadSinLFO(0");
-		int sineLFO_1 = getRenderBlock().countLFOReferences("LoadSinLFO(1");
 		return i;
 	}
 
@@ -289,6 +285,23 @@ public class SpinCADModel implements Serializable {
 		return getRenderBlock().getCodeLen() - getRenderBlock().getNumComments();
 	}
 
+	public static int countLFOReferences(String matchString) {
+		String list = getRenderBlock().getProgramListing();
+		int lastIndex = 0;
+		int count =0;
+
+		while(lastIndex != -1){
+
+			lastIndex = list.indexOf(matchString,lastIndex);
+
+			if( lastIndex != -1){
+				count ++;
+				lastIndex+=matchString.length();
+			}
+		}
+		return count;
+	}
+	
 	public static SpinFXBlock getRenderBlock() {
 		return renderBlock;
 	}

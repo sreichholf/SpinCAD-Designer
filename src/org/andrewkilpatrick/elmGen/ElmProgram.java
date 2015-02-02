@@ -400,23 +400,6 @@ public class ElmProgram implements Serializable {
 			return "Error! Invalid mode.";
 	}
 
-	public int countLFOReferences(String matchString) {
-		String list = getProgramListing();
-		int lastIndex = 0;
-		int count =0;
-
-		while(lastIndex != -1){
-
-			lastIndex = list.indexOf(matchString,lastIndex);
-
-			if( lastIndex != -1){
-				count ++;
-				lastIndex+=matchString.length();
-			}
-		}
-		return count;
-	}
-
 	/*
 	 * INSTRUCTIONS
 	 */
