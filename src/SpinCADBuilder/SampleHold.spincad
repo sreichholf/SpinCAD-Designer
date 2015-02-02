@@ -11,6 +11,7 @@
 equ output reg0
 equ hold reg1
 ;equ ramp reg2
+equ symmetry 0.25
 
 @isPinConnected Control_In
 @isPinConnected Rate
@@ -28,19 +29,20 @@ sof    0.5, 0.1 ; limit the pot to get a nice range of speeds
 wrax    rmp0_rate,0   ;write to ramp 1 rate to set speed 
 cho rdal, rmp0   ;get current value of rmp0
 ;wrax ramp, 1
-sof    -1.0, 0.001 ; make ramp go from -0.5 to 0.001
+sof    1.0, -symmetry ; make ramp go from -0.25 to 0.25
 
+skp    ZRC, shftzrc  ; if the ramp is less than 0, skip past this part
+clr
+rdax hold, 1
+wrax   output, 0 ; ACC to ADC
+skp zro, holding
 
-skp    ZRO, shftzro  ; if the ramp is less than 0, skip past this part
+shftzrc:
 ldax   input1 ; read the last control input value
 ; absa        ; make sure it's positive
 wrax hold, 0
 
-shftzro:
-clr
-rdax hold, 1
-wrax   output, 0 ; ACC to ADC
-
+holding:
 @setOutputPin Sample_Hold output
 @endif
 @endif
