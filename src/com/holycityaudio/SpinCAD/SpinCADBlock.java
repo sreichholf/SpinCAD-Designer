@@ -37,10 +37,6 @@ import com.holycityaudio.SpinCAD.SpinCADPin.pinType;
 
 public class SpinCADBlock extends SpinFXBlock {
 
-	public class LogFilterSlider extends JSlider {
-
-	}
-
 	/**
 	 * SpinCADBlock class extends the idea of a functional block
 	 * to a graphical idea with inputs and outputs

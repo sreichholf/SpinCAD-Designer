@@ -12,6 +12,9 @@ equ output reg0
 equ hold reg1
 ;equ ramp reg2
 
+@isPinConnected Control_In
+@isPinConnected Rate
+
 skp    run, start
 wldr    0,20,4096
 
@@ -39,6 +42,7 @@ rdax hold, 1
 wrax   output, 0 ; ACC to ADC
 
 @setOutputPin Sample_Hold output
-;@setOutputPin Ramp_LFO ramp
+@endif
+@endif
 
 
