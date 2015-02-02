@@ -1094,6 +1094,8 @@ public class SpinCADFrame extends JFrame {
 		final JTextField ramp1Bar = new JTextField("RMP 1", 6);
 		final JTextField sine0Bar = new JTextField("SIN 0", 6);
 		final JTextField sine1Bar = new JTextField("SIN 1", 6);
+		
+		
 
 		class Task extends SwingWorker<Void, Void> {
 			/*
@@ -1162,6 +1164,13 @@ public class SpinCADFrame extends JFrame {
 			sine1Bar.setHorizontalAlignment(JTextField.CENTER);
 			sine1Bar.setBackground(Color.GREEN);
 			sine1Bar.setForeground(Color.BLUE);
+			
+			Dimension lfoBarDim = sine1Bar.getPreferredSize();
+	
+			ramp0Bar.setMaximumSize(lfoBarDim);
+			ramp1Bar.setMaximumSize(lfoBarDim);
+			sine0Bar.setMaximumSize(lfoBarDim);
+			sine1Bar.setMaximumSize(lfoBarDim);
 
 			add(progressBar_2);
 			add(progressBar);

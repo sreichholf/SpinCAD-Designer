@@ -13,6 +13,9 @@ equ hold reg1
 ;equ ramp reg2
 equ symmetry 0.25
 
+// variable - Name - low - high - multiplier - precision - option 
+//@sliderLabel symmetry Symmetry 10.0 50.0 200.0 1.0 1 LINEAR 
+
 @isPinConnected Control_In
 @isPinConnected Rate
 
