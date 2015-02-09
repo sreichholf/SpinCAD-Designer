@@ -49,7 +49,6 @@
 				frame.setTitle("Active_Crossover");
 				frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 
-				
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -65,16 +64,17 @@
 		public void stateChanged(ChangeEvent ce) {
 			}
 		}
-		// add item listener for Bool (CheckbBox) 
+
+		// add item listener 
 		class act_xoverItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-		@Override
-		public void itemStateChanged(ItemEvent arg0) {
-			
-		}
-	}
 
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		}
 		
 		class MyWindowListener implements WindowListener
 		{
@@ -104,9 +104,9 @@
 
 		}
 
-		@Override
-		public void windowOpened(WindowEvent arg0) {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+			}
 		}
-	}
 		
 	}

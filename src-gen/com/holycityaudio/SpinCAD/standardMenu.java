@@ -53,15 +53,19 @@
 	import com.holycityaudio.SpinCAD.CADBlocks.RampLFOCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.OscillatorCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.SampleHoldCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.PatternGeneratorCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.tremolizerCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.EnvelopeControlCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.PowerControlCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.RootCADBlock;
-	import com.holycityaudio.SpinCAD.CADBlocks.ClipControlCADBlock;
-	import com.holycityaudio.SpinCAD.CADBlocks.InvertControlCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.AbsaCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.ExpCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.LogCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ScaleOffsetControlCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ControlMixerCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.control_smootherACADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.ClipControlCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.InvertControlCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.TapTempoCADBlock;
 
 	import java.awt.event.ActionEvent;
@@ -581,6 +585,15 @@
 	});
 	mn_control.add(mntm_SampleHold);
 		
+	final JMenuItem mntm_PatternGenerator = new JMenuItem("Pattern Gen");
+	mntm_PatternGenerator.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new PatternGeneratorCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_control.add(mntm_PatternGenerator);
+		
 	final JMenuItem mntm_tremolizer = new JMenuItem("Tremolizer");
 	mntm_tremolizer.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -617,23 +630,32 @@
 	});
 	mn_control.add(mntm_Root);
 		
-	final JMenuItem mntm_ClipControl = new JMenuItem("Clip");
-	mntm_ClipControl.addActionListener(new ActionListener() {
+	final JMenuItem mntm_Absa = new JMenuItem("Absolute Value");
+	mntm_Absa.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			SpinCADBlock pcB = new ClipControlCADBlock(50, 100);
+			SpinCADBlock pcB = new AbsaCADBlock(50, 100);
 			f.dropBlock(panel, pcB);
 		}
 	});
-	mn_control.add(mntm_ClipControl);
+	mn_control.add(mntm_Absa);
 		
-	final JMenuItem mntm_InvertControl = new JMenuItem("Invert");
-	mntm_InvertControl.addActionListener(new ActionListener() {
+	final JMenuItem mntm_Exp = new JMenuItem("Exp");
+	mntm_Exp.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			SpinCADBlock pcB = new InvertControlCADBlock(50, 100);
+			SpinCADBlock pcB = new ExpCADBlock(50, 100);
 			f.dropBlock(panel, pcB);
 		}
 	});
-	mn_control.add(mntm_InvertControl);
+	mn_control.add(mntm_Exp);
+		
+	final JMenuItem mntm_Log = new JMenuItem("Log");
+	mntm_Log.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new LogCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_control.add(mntm_Log);
 		
 	final JMenuItem mntm_ScaleOffsetControl = new JMenuItem("Scale/Offset");
 	mntm_ScaleOffsetControl.addActionListener(new ActionListener() {
@@ -661,6 +683,24 @@
 		}
 	});
 	mn_control.add(mntm_control_smootherA);
+		
+	final JMenuItem mntm_ClipControl = new JMenuItem("Clip");
+	mntm_ClipControl.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new ClipControlCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_control.add(mntm_ClipControl);
+		
+	final JMenuItem mntm_InvertControl = new JMenuItem("Invert");
+	mntm_InvertControl.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new InvertControlCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_control.add(mntm_InvertControl);
 		
 	final JMenuItem mntm_TapTempo = new JMenuItem("Tap Tempo");
 	mntm_TapTempo.addActionListener(new ActionListener() {

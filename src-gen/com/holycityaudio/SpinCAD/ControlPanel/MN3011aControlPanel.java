@@ -121,7 +121,6 @@
 			updatetap6GainLabel();
 			frame.getContentPane().add(tap6GainLabel);
 			frame.getContentPane().add(tap6GainSlider);		
-				
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -169,16 +168,17 @@
 			}
 			}
 		}
-		// add item listener for Bool (CheckbBox) 
+
+		// add item listener 
 		class MN3011aItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-		@Override
-		public void itemStateChanged(ItemEvent arg0) {
-			
-		}
-	}
 
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		}
 		private void updateinputGainLabel() {
 		inputGainLabel.setText("Input_Gain " + String.format("%4.2f", gCB.getinputGain()));		
 		}		
@@ -232,9 +232,9 @@
 
 		}
 
-		@Override
-		public void windowOpened(WindowEvent arg0) {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+			}
 		}
-	}
 		
 	}

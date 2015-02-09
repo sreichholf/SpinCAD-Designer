@@ -1,0 +1,14 @@
+@name Log
+@controlInput input Control_Input
+@controlOutput output1 Control_Output  
+
+;REGISTERS 
+equ   output1     reg0       
+
+@isPinConnected Input
+rdax    input,1    ;read input signal
+;log 
+wrax    output1,0    ;output  
+@setOutputPin Control_Output output1
+@endif
+

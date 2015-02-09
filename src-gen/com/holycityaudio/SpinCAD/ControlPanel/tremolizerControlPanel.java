@@ -58,7 +58,6 @@
 			updatedepthLabel();
 			frame.getContentPane().add(depthLabel);
 			frame.getContentPane().add(depthSlider);		
-				
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -78,16 +77,17 @@
 			}
 			}
 		}
-		// add item listener for Bool (CheckbBox) 
+
+		// add item listener 
 		class tremolizerItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-		@Override
-		public void itemStateChanged(ItemEvent arg0) {
-			
-		}
-	}
 
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		}
 		private void updatedepthLabel() {
 		depthLabel.setText("Depth " + String.format("%4.2f", gCB.getdepth()));		
 		}		
@@ -120,9 +120,9 @@
 
 		}
 
-		@Override
-		public void windowOpened(WindowEvent arg0) {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+			}
 		}
-	}
 		
 	}

@@ -67,7 +67,6 @@
 			updateshelfLabel();
 			frame.getContentPane().add(shelfLabel);
 			frame.getContentPane().add(shelfSlider);		
-				
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -91,16 +90,17 @@
 			}
 			}
 		}
-		// add item listener for Bool (CheckbBox) 
+
+		// add item listener 
 		class Shelving_HipassItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-		@Override
-		public void itemStateChanged(ItemEvent arg0) {
-			
-		}
-	}
 
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+			}
+		}
 		private void updatefreqLabel() {
 		freqLabel.setText("Frequency " + String.format("%4.3f", gCB.getfreq()));		
 		}		
@@ -136,9 +136,9 @@
 
 		}
 
-		@Override
-		public void windowOpened(WindowEvent arg0) {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+			}
 		}
-	}
 		
 	}

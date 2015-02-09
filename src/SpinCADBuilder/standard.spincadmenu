@@ -104,14 +104,18 @@
 @menuitem "Ramp LFO" RampLFO
 @menuitem "Oscillator" Oscillator
 @menuitem "Sample/Hold" SampleHold
+@menuitem "Pattern Gen" PatternGenerator
 @menuitem "Tremolizer" tremolizer
 @menuitem "Envelope" EnvelopeControl
 @menuitem "Power" PowerControl
 @menuitem "Root" Root
-@menuitem "Clip" ClipControl
-@menuitem "Invert" InvertControl
+@menuitem "Absolute Value" Absa
+@menuitem "Exp" Exp
+@menuitem "Log" Log
 @menuitem "Scale/Offset" ScaleOffsetControl
 @menuitem "Control Mixer" ControlMixer
 @menuitem "Smoother" control_smootherA
+@menuitem "Clip" ClipControl
+@menuitem "Invert" InvertControl
 // @menuitem "Smoother" control_smoother
 @menuitem "Tap Tempo" TapTempo

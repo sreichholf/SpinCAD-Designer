@@ -1,24 +1,31 @@
-@name SampleHold
-@controlInput input1 Control_In
+@name PatternGenerator
 @controlInput rate Rate
-@controlOutput output Sample_Hold
+@controlOutput output Pattern_Out
 ;@controlOutput ramp Ramp_LFO
 
 
-; Sample and Hold Demo
-; Samples the control input and puts the sampled/held signal
-; at the output
+; Pattern Generator
+; Steps through a set of values preset from Sliders in the control Panel
+
 equ output reg0
 equ hold reg1
 ;equ ramp reg2
 equ symmetry 0.25
+equ step1 0.1
+equ step2 0.5
+equ step3 0.01
+equ step4 1.0
 
 ;@lfoSelectRadioButton ramp Ramp
+
+@sliderLabelCheckBox step1 Step_1  0.0 1.0 0.5 1000.0 2
+@sliderLabelCheckBox step2 Step_2  0.0 1.0 0.5 1000.0 2
+@sliderLabelCheckBox step2 Step_3  0.0 1.0 0.5 1000.0 2
+@sliderLabelCheckBox step2 Step_4  0.0 1.0 0.5 1000.0 2
 
 // variable - Name - low - high - multiplier - precision - option 
 //@sliderLabel symmetry Symmetry 10.0 50.0 200.0 1.0 1 LINEAR 
 
-@isPinConnected Control_In
 @isPinConnected Rate
 
 skp    run, start
@@ -43,13 +50,11 @@ wrax   output, 0 ; ACC to ADC
 skp zro, holding
 
 shftzrc:
-ldax   input1 ; read the last control input value
-; absa        ; make sure it's positive
+sof 0.0, step1 
 wrax hold, 0
 
 holding:
-@setOutputPin Sample_Hold output
-@endif
+@setOutputPin Pattern_Out output
 @endif
 
 
