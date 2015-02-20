@@ -18,23 +18,23 @@
  *     
  */ 
 
-package com.holycityaudio.SpinCAD.CADBlocks;
+package com.holycityaudio.SpinCAD.CADBlocks; 
 
 import com.holycityaudio.SpinCAD.SpinCADPin;
 import com.holycityaudio.SpinCAD.SpinFXBlock;
 
-public class ChorusCADBlock extends ModulationCADBlock {
+public class ChorusCADBlock_A extends ModulationCADBlock {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 695539935034103396L;
 
-	public ChorusCADBlock(int x, int y) {
+	public ChorusCADBlock_A(int x, int y) {
 		super(x, y);
 		addControlInputPin(this,"LFO Speed");
 		addControlInputPin(this,"LFO Width");
-		setName("Chorus");
+		setName("Chorus_A");
 	}
 
 	private void doChorus(SpinFXBlock sfxb, int chorusLength) {

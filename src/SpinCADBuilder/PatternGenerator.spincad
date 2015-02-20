@@ -18,10 +18,10 @@ equ step4 1.0
 
 ;@lfoSelectRadioButton ramp Ramp 
 
-@sliderLabelCheckBox step1 Step_1  0.0 1.0 0.5 1000.0 2 
-@sliderLabelCheckBox step2 Step_2  0.0 1.0 0.5 1000.0 2
-@sliderLabelCheckBox step2 Step_3  0.0 1.0 0.5 1000.0 2
-@sliderLabelCheckBox step2 Step_4  0.0 1.0 0.5 1000.0 2
+;@sliderLabelCheckBox step1 Step_1  0.0 1.0 0.5 1000.0 2 
+;@sliderLabelCheckBox step2 Step_2  0.0 1.0 0.5 1000.0 2
+;@sliderLabelCheckBox step2 Step_3  0.0 1.0 0.5 1000.0 2
+;@sliderLabelCheckBox step2 Step_4  0.0 1.0 0.5 1000.0 2
 
 // variable - Name - low - high - multiplier - precision - option 
 //@sliderLabel symmetry Symmetry 10.0 50.0 200.0 1.0 1 LINEAR 
