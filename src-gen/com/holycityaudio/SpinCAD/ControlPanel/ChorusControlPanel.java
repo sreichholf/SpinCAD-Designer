@@ -41,8 +41,12 @@
 			JLabel  delayLengthLabel;	
 			JSlider tap1CenterSlider;
 			JLabel  tap1CenterLabel;	
+			JSlider tap2CenterSlider;
+			JLabel  tap2CenterLabel;	
 			JSlider rateSlider;
 			JLabel  rateLabel;	
+			JSlider widthSlider;
+			JLabel  widthLabel;	
 
 		public ChorusControlPanel(ChorusCADBlock genericCADBlock) {
 		
@@ -56,7 +60,7 @@
 				frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 
 			
-			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0 * 1),(int) (4096 * 1), (int) (gCB.getdelayLength() * 1));
+			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0 * 1),(int) (1024 * 1), (int) (gCB.getdelayLength() * 1));
 			delayLengthSlider.addChangeListener(new ChorusSliderListener());
 			delayLengthLabel = new JLabel();
 			updatedelayLengthLabel();
@@ -70,12 +74,26 @@
 			frame.getContentPane().add(tap1CenterLabel);
 			frame.getContentPane().add(tap1CenterSlider);		
 			
+			tap2CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap2Center() * 1000.0));
+			tap2CenterSlider.addChangeListener(new ChorusSliderListener());
+			tap2CenterLabel = new JLabel();
+			updatetap2CenterLabel();
+			frame.getContentPane().add(tap2CenterLabel);
+			frame.getContentPane().add(tap2CenterSlider);		
+			
 			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (20.0 * 100.0), (int) (gCB.getrate() * 100.0));
 			rateSlider.addChangeListener(new ChorusSliderListener());
 			rateLabel = new JLabel();
 			updaterateLabel();
 			frame.getContentPane().add(rateLabel);
 			frame.getContentPane().add(rateSlider);		
+			
+			widthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (100.0 * 100.0), (int) (gCB.getwidth() * 100.0));
+			widthSlider.addChangeListener(new ChorusSliderListener());
+			widthLabel = new JLabel();
+			updatewidthLabel();
+			frame.getContentPane().add(widthLabel);
+			frame.getContentPane().add(widthSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -97,9 +115,17 @@
 				gCB.settap1Center((double) (tap1CenterSlider.getValue()/1000.0));
 				updatetap1CenterLabel();
 			}
+			if(ce.getSource() == tap2CenterSlider) {
+				gCB.settap2Center((double) (tap2CenterSlider.getValue()/1000.0));
+				updatetap2CenterLabel();
+			}
 			if(ce.getSource() == rateSlider) {
 				gCB.setrate((double) (rateSlider.getValue()/100.0));
 				updaterateLabel();
+			}
+			if(ce.getSource() == widthSlider) {
+				gCB.setwidth((double) (widthSlider.getValue()/100.0));
+				updatewidthLabel();
 			}
 			}
 		}
@@ -120,8 +146,14 @@
 		private void updatetap1CenterLabel() {
 		tap1CenterLabel.setText("Tap_1_Center " + String.format("%4.2f", gCB.gettap1Center()));		
 		}		
+		private void updatetap2CenterLabel() {
+		tap2CenterLabel.setText("Tap_2_Center " + String.format("%4.2f", gCB.gettap2Center()));		
+		}		
 		private void updaterateLabel() {
 		rateLabel.setText("LFO_Rate " + String.format("%4.2f", gCB.getrate()));		
+		}		
+		private void updatewidthLabel() {
+		widthLabel.setText("LFO_Width " + String.format("%4.1f", gCB.getwidth()));		
 		}		
 		
 		class MyWindowListener implements WindowListener

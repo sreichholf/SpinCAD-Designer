@@ -24,21 +24,19 @@
 		import com.holycityaudio.SpinCAD.SpinFXBlock;
  		import com.holycityaudio.SpinCAD.ControlPanel.ChorusControlPanel;
 		
-		public class ChorusCADBlock extends SpinCADBlock {
+		public class ChorusCADBlock_B extends SpinCADBlock {
 
 			private static final long serialVersionUID = 1L;
 			private ChorusControlPanel cp = null;
 			
 			private double rate = 20;
-			private double width = 56;
-			private int widthReg;
+			private double width = 256;
 			private int output1;
-			private double delayLength = 512;
+			private double delayLength = 1024;
 			private double tap1Center = 0.5;
-			private double tap2Center = 0.25;
 			private double delayOffset = -1;
 
-			public ChorusCADBlock(int x, int y) {
+			public ChorusCADBlock_B(int x, int y) {
 				super(x, y);
 				setName("Chorus");	
 				// Iterate through pin definitions and allocate or assign as needed
@@ -50,15 +48,13 @@
 						hasControlPanel = true;
 						hasControlPanel = true;
 						hasControlPanel = true;
-						hasControlPanel = true;
-						hasControlPanel = true;
 						}
 		
 			// In the event there are parameters editable by control panel
 			public void editBlock(){ 
 				if(cp == null) {
 					if(hasControlPanel == true) {
-						cp = new ChorusControlPanel(this);
+//						cp = new ChorusControlPanel(this);
 					}
 				}
 			}
@@ -90,38 +86,24 @@
 			}
 			
 			sp = this.getPin("LFO_Width").getPinConnection();
-			int widthIn = -1;
+			int width = -1;
 			if(sp != null) {
-				widthIn = sp.getRegister();
+				width = sp.getRegister();
 			}
 			
 			
 			// finally, generate the instructions
-			widthReg = sfxb.allocateReg();
 			output1 = sfxb.allocateReg();
 			if(this.getPin("Input").isConnected() == true) {
 			int	delayOffset = sfxb.getDelayMemAllocated() + 1;
 			sfxb.FXallocDelayMem("delayl", delayLength); 
 			sfxb.skip(RUN, 1);
-			sfxb.loadSinLFO(SIN0, 10, 128);
-			if(this.getPin("LFO_Width").isConnected() == true) {
-			sfxb.readRegister(widthReg, 1);
-			sfxb.mulx(widthIn);
-			sfxb.writeRegister(SIN0_RATE, 0);
-			}
-			
+			sfxb.loadSinLFO(SIN0, 25, 128);
 			sfxb.loadAccumulator(input);
 			sfxb.FXwriteDelay("delayl", 0, 0);
-			{
-				int chorusCenter = (int) (delayOffset + (0.5 * tap1Center * delayLength) +  0.25 * delayLength); 
-				sfxb.chorusReadDelay(0, SIN|REG|COMPC, chorusCenter );
-				sfxb.chorusReadDelay(0, SIN, chorusCenter + 1);
-			}
-			{
-				int chorusCenter = (int) (delayOffset + (0.5 * tap2Center * delayLength) +  0.25 * delayLength); 
-				sfxb.chorusReadDelay(0, SIN|REG|COMPC, chorusCenter );
-				sfxb.chorusReadDelay(0, SIN, chorusCenter + 1);
-			}
+			int chorusCenter = (int) (delayOffset +  (0.5 * tap1Center * delayLength) + (0.25 *  delayLength)); 
+			sfxb.chorusReadDelay(0, SIN|REG|COMPC, chorusCenter );
+			sfxb.chorusReadDelay(0, SIN, chorusCenter + 1);
 			sfxb.writeRegister(output1, 0);
 			this.getPin("Output").setRegister(output1);
 			}
@@ -144,25 +126,11 @@
 			public double gettap1Center() {
 				return tap1Center;
 			}
-			public void settap2Center(double __param) {
-				tap2Center = __param;	
-			}
-			
-			public double gettap2Center() {
-				return tap2Center;
-			}
 			public void setrate(double __param) {
 				rate = __param;	
 			}
 			
 			public double getrate() {
 				return rate;
-			}
-			public void setwidth(double __param) {
-				width = __param;	
-			}
-			
-			public double getwidth() {
-				return width;
 			}
 		}	
