@@ -31,8 +31,8 @@
 			
 			private double rate = 120;
 			private double rateMax = 511;
-			private double width = 56;
-			private double widthMax = 128;
+			private double width = 32;
+			private double widthMax = 16384;
 			private int output1;
 			private double delayLength = 512;
 			private double tap1Center = 0.5;

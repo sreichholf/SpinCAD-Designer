@@ -6,8 +6,8 @@
 
 equ rate 120
 equ rateMax 511
-equ width 56	// double value of width
-equ widthMax 128
+equ width 32	// double value of width
+equ widthMax 16384
 equ output1 reg0
 
 // total allocated memory buffer for this delay
