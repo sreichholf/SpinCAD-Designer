@@ -1,12 +1,13 @@
 @name Chorus
 @audioInput input Input
 @audioOutput output1 Output  
-@controlInput rate LFO_Rate 
+@controlInput rateIn LFO_Rate 
 @controlInput widthIn LFO_Width
 
-equ rate 20
+equ rate 120
+equ rateMax 511
 equ width 56	// double value of width
-equ widthReg reg1 
+equ widthMax 128
 equ output1 reg0
 
 // total allocated memory buffer for this delay
@@ -33,16 +34,25 @@ equ delayOffset -1
 mem delayl delayLength ; delay should actually be delay * 2 as panel setting is sweep center
 
 skp run,START
-wlds SIN0, 10, 128
+wlds SIN0, 50, 64
 
 START: 
 
 @isPinConnected LFO_Width
-rdax	widthReg,1
-mulx	widthIn
-wrax SIN0_RATE, 0
+@divideDouble temp width widthMax
+rdax	widthIn, temp
+wrax SIN0_RANGE, 0
 @endif
 
+// Here's the expression for scaling the LFO rate by the control input.
+// we read the control and scale it by the slider setting/511 which is max.
+// sfxb.readRegister(speedIn, lfoRate/511.0);	
+
+@isPinConnected LFO_Rate
+@divideDouble temp1 rate rateMax
+rdax	rateIn, temp1
+wrax SIN0_RATE, 0
+@endif
 
 ldax input
 ; Write it to left delay and clear ACC

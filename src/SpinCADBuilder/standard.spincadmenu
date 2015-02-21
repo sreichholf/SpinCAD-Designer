@@ -65,7 +65,7 @@
 @menuitem "Adjustable Reverb" reverbA 
 // @menuitem "Reverb Filter" reverbFilter 
 
-@menu "Modulation" 
+@menu "Modulation"  
 @menuitem "Chorus" Chorus 
 // @menuitem "Rich Chorus" RichChorus 
 @menuitem "Preset Chorus" ChorusPreset 

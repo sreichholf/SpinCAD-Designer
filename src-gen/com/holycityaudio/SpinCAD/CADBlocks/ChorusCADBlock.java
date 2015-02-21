@@ -29,9 +29,10 @@
 			private static final long serialVersionUID = 1L;
 			private ChorusControlPanel cp = null;
 			
-			private double rate = 20;
+			private double rate = 120;
+			private double rateMax = 511;
 			private double width = 56;
-			private int widthReg;
+			private double widthMax = 128;
 			private int output1;
 			private double delayLength = 512;
 			private double tap1Center = 0.5;
@@ -84,9 +85,9 @@
 			}
 			
 			sp = this.getPin("LFO_Rate").getPinConnection();
-			int rate = -1;
+			int rateIn = -1;
 			if(sp != null) {
-				rate = sp.getRegister();
+				rateIn = sp.getRegister();
 			}
 			
 			sp = this.getPin("LFO_Width").getPinConnection();
@@ -97,16 +98,21 @@
 			
 			
 			// finally, generate the instructions
-			widthReg = sfxb.allocateReg();
 			output1 = sfxb.allocateReg();
 			if(this.getPin("Input").isConnected() == true) {
 			int	delayOffset = sfxb.getDelayMemAllocated() + 1;
 			sfxb.FXallocDelayMem("delayl", delayLength); 
 			sfxb.skip(RUN, 1);
-			sfxb.loadSinLFO(SIN0, 10, 128);
+			sfxb.loadSinLFO(SIN0, 50, 64);
 			if(this.getPin("LFO_Width").isConnected() == true) {
-			sfxb.readRegister(widthReg, 1);
-			sfxb.mulx(widthIn);
+			double temp = width / widthMax;
+			sfxb.readRegister(widthIn, temp);
+			sfxb.writeRegister(SIN0_RANGE, 0);
+			}
+			
+			if(this.getPin("LFO_Rate").isConnected() == true) {
+			double temp1 = rate / rateMax;
+			sfxb.readRegister(rateIn, temp1);
 			sfxb.writeRegister(SIN0_RATE, 0);
 			}
 			
