@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.pitchupdownCADBlock;
 
-		public class pitchupdownControlPanel {
+		public class pitchupdownControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private pitchupdownCADBlock gCB;

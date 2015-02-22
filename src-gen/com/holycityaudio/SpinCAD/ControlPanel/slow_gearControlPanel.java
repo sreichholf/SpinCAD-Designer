@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.slow_gearCADBlock;
 
-		public class slow_gearControlPanel {
+		public class slow_gearControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private slow_gearCADBlock gCB;

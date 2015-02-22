@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.soft_knee_limiterCADBlock;
 
-		public class soft_knee_limiterControlPanel {
+		public class soft_knee_limiterControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private soft_knee_limiterCADBlock gCB;

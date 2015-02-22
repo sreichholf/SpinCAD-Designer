@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.control_smootherCADBlock;
 
-		public class control_smootherControlPanel {
+		public class control_smootherControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private control_smootherCADBlock gCB;

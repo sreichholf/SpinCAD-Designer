@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.tremolizerCADBlock;
 
-		public class tremolizerControlPanel {
+		public class tremolizerControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private tremolizerCADBlock gCB;

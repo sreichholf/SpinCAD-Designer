@@ -1,12 +1,10 @@
 @name Chorus
 @audioInput input Input
-@audioOutput output1 Output  
+@audioOutput output1 Output 
 @controlInput rateIn LFO_Rate 
 @controlInput widthIn LFO_Width
 
-equ rate 120
 equ rateMax 511
-equ width 32	// double value of width
 equ widthMax 16384
 equ output1 reg0
 
@@ -16,13 +14,15 @@ equ delayLength 512
 @sliderLabel delayLength Chorus_Time 0 1024 512 1 0 lengthToTime
 
 equ tap1Center 0.5 
-@sliderLabel tap1Center Tap_1_Center 0.0 1.0 0.5 1000.0 2
+@sliderLabel tap1Center Tap_1_Center 0.25 0.75 0.5 1000.0 3
 
 equ tap2Center 0.25 
-@sliderLabel tap2Center Tap_2_Center 0.0 1.0 0.5 1000.0 2
+;@sliderLabel tap2Center Tap_2_Center 0.0 1.0 0.5 1000.0 2 
 
-@sliderLabel rate LFO_Rate 0.0 20.0 3.0 100.0 2
+equ rate 20
+@sliderLabel rate LFO_Rate 0.0 511.0 20.0 100.0 1 SINLFOFREQ
 
+equ width 64	// double value of width
 @sliderLabel width LFO_Width 0.0 100.0 3.0 100.0 1
 
 
@@ -55,11 +55,11 @@ wrax SIN0_RATE, 0
 @endif
 
 ldax input
-; Write it to left delay and clear ACC
+; Write it to delay and clear ACC
 wra delayl,0
 
 @readChorusTap 0 0 tap1Center delayLength delayOffset 
-@readChorusTap 0 1 tap2Center delayLength delayOffset 
+; @readChorusTap 0 1 tap2Center delayLength delayOffset 
 
 ; Interpolated sample in ACC, write it to DACL and clear ACC
 wrax output1,0

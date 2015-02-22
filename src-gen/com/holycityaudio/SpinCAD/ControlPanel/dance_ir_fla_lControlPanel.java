@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.dance_ir_fla_lCADBlock;
 
-		public class dance_ir_fla_lControlPanel {
+		public class dance_ir_fla_lControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private dance_ir_fla_lCADBlock gCB;

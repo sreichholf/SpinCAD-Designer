@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.reverbCADBlock;
 
-		public class reverbControlPanel {
+		public class reverbControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private reverbCADBlock gCB;

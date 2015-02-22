@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.aliaserCADBlock;
 
-		public class aliaserControlPanel {
+		public class aliaserControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private aliaserCADBlock gCB;

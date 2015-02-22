@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.act_xoverCADBlock;
 
-		public class act_xoverControlPanel {
+		public class act_xoverControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private act_xoverCADBlock gCB;

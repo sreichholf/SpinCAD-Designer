@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.very_tight_plate_verbCADBlock;
 
-		public class very_tight_plate_verbControlPanel {
+		public class very_tight_plate_verbControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private very_tight_plate_verbCADBlock gCB;

@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.Shelving_lowpassCADBlock;
 
-		public class Shelving_lowpassControlPanel {
+		public class Shelving_lowpassControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private Shelving_lowpassCADBlock gCB;

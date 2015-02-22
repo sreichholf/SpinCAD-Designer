@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.ga_demo_echoCADBlock;
 
-		public class ga_demo_echoControlPanel {
+		public class ga_demo_echoControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private ga_demo_echoCADBlock gCB;

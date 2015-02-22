@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.TripleTapCADBlock;
 
-		public class TripleTapControlPanel {
+		public class TripleTapControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private TripleTapCADBlock gCB;

@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.ga_demo_phaserCADBlock;
 
-		public class ga_demo_phaserControlPanel {
+		public class ga_demo_phaserControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private ga_demo_phaserCADBlock gCB;

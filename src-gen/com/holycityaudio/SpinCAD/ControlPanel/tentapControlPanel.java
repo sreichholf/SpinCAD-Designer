@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.tentapCADBlock;
 
-		public class tentapControlPanel {
+		public class tentapControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private tentapCADBlock gCB;

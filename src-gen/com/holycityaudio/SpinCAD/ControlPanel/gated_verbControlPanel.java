@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.gated_verbCADBlock;
 
-		public class gated_verbControlPanel {
+		public class gated_verbControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private gated_verbCADBlock gCB;

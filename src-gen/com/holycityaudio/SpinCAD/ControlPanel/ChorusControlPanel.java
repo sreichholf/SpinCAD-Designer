@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.ChorusCADBlock;
 
-		public class ChorusControlPanel {
+		public class ChorusControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private ChorusCADBlock gCB;
@@ -41,8 +42,6 @@
 			JLabel  delayLengthLabel;	
 			JSlider tap1CenterSlider;
 			JLabel  tap1CenterLabel;	
-			JSlider tap2CenterSlider;
-			JLabel  tap2CenterLabel;	
 			JSlider rateSlider;
 			JLabel  rateLabel;	
 			JSlider widthSlider;
@@ -67,21 +66,14 @@
 			frame.getContentPane().add(delayLengthLabel);
 			frame.getContentPane().add(delayLengthSlider);		
 			
-			tap1CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap1Center() * 1000.0));
+			tap1CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.25 * 1000.0),(int) (0.75 * 1000.0), (int) (gCB.gettap1Center() * 1000.0));
 			tap1CenterSlider.addChangeListener(new ChorusSliderListener());
 			tap1CenterLabel = new JLabel();
 			updatetap1CenterLabel();
 			frame.getContentPane().add(tap1CenterLabel);
 			frame.getContentPane().add(tap1CenterSlider);		
 			
-			tap2CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap2Center() * 1000.0));
-			tap2CenterSlider.addChangeListener(new ChorusSliderListener());
-			tap2CenterLabel = new JLabel();
-			updatetap2CenterLabel();
-			frame.getContentPane().add(tap2CenterLabel);
-			frame.getContentPane().add(tap2CenterSlider);		
-			
-			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (20.0 * 100.0), (int) (gCB.getrate() * 100.0));
+			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
 			rateSlider.addChangeListener(new ChorusSliderListener());
 			rateLabel = new JLabel();
 			updaterateLabel();
@@ -115,10 +107,6 @@
 				gCB.settap1Center((double) (tap1CenterSlider.getValue()/1000.0));
 				updatetap1CenterLabel();
 			}
-			if(ce.getSource() == tap2CenterSlider) {
-				gCB.settap2Center((double) (tap2CenterSlider.getValue()/1000.0));
-				updatetap2CenterLabel();
-			}
 			if(ce.getSource() == rateSlider) {
 				gCB.setrate((double) (rateSlider.getValue()/100.0));
 				updaterateLabel();
@@ -144,13 +132,10 @@
 		delayLengthLabel.setText("Chorus_Time " + String.format("%4.0f", (1000 * gCB.getdelayLength())/gCB.getSamplerate()));		
 		}		
 		private void updatetap1CenterLabel() {
-		tap1CenterLabel.setText("Tap_1_Center " + String.format("%4.2f", gCB.gettap1Center()));		
-		}		
-		private void updatetap2CenterLabel() {
-		tap2CenterLabel.setText("Tap_2_Center " + String.format("%4.2f", gCB.gettap2Center()));		
+		tap1CenterLabel.setText("Tap_1_Center " + String.format("%4.3f", gCB.gettap1Center()));		
 		}		
 		private void updaterateLabel() {
-		rateLabel.setText("LFO_Rate " + String.format("%4.2f", gCB.getrate()));		
+		rateLabel.setText("LFO_Rate " + String.format("%4.1f", coeffToLFORate(gCB.getrate())));		
 		}		
 		private void updatewidthLabel() {
 		widthLabel.setText("LFO_Width " + String.format("%4.1f", gCB.getwidth()));		

@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.PatternGeneratorCADBlock;
 
-		public class PatternGeneratorControlPanel {
+		public class PatternGeneratorControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private PatternGeneratorCADBlock gCB;

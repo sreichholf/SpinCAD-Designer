@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.rms_lim_expCADBlock;
 
-		public class rms_lim_expControlPanel {
+		public class rms_lim_expControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private rms_lim_expCADBlock gCB;

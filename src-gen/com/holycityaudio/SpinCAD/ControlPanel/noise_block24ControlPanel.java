@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.noise_block24CADBlock;
 
-		public class noise_block24ControlPanel {
+		public class noise_block24ControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private noise_block24CADBlock gCB;

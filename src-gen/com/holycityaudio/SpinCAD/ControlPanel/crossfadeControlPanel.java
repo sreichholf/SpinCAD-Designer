@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.crossfadeCADBlock;
 
-		public class crossfadeControlPanel {
+		public class crossfadeControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private crossfadeCADBlock gCB;

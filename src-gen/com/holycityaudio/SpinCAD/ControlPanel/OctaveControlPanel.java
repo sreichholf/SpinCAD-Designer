@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.OctaveCADBlock;
 
-		public class OctaveControlPanel {
+		public class OctaveControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private OctaveCADBlock gCB;

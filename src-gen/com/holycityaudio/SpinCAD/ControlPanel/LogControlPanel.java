@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.LogCADBlock;
 
-		public class LogControlPanel {
+		public class LogControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private LogCADBlock gCB;

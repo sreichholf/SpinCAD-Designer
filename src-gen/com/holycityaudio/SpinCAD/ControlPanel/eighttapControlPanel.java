@@ -30,9 +30,10 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		
+		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.eighttapCADBlock;
 
-		public class eighttapControlPanel {
+		public class eighttapControlPanel extends spinCADControlPanel {
 		private JFrame frame;
 
 		private eighttapCADBlock gCB;

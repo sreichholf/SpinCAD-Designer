@@ -29,14 +29,14 @@
 			private static final long serialVersionUID = 1L;
 			private ChorusControlPanel cp = null;
 			
-			private double rate = 120;
 			private double rateMax = 511;
-			private double width = 32;
 			private double widthMax = 16384;
 			private int output1;
 			private double delayLength = 512;
 			private double tap1Center = 0.5;
 			private double tap2Center = 0.25;
+			private double rate = 20;
+			private double width = 64;
 			private double delayOffset = -1;
 
 			public ChorusCADBlock(int x, int y) {
@@ -48,7 +48,6 @@
 				addControlInputPin(this, "LFO_Rate");
 				addControlInputPin(this, "LFO_Width");
 			// if any control panel elements declared, set hasControlPanel to true
-						hasControlPanel = true;
 						hasControlPanel = true;
 						hasControlPanel = true;
 						hasControlPanel = true;
@@ -123,11 +122,6 @@
 				sfxb.chorusReadDelay(0, SIN|REG|COMPC, chorusCenter );
 				sfxb.chorusReadDelay(0, SIN, chorusCenter + 1);
 			}
-			{
-				int chorusCenter = (int) (delayOffset + (0.5 * tap2Center * delayLength) +  0.25 * delayLength); 
-				sfxb.chorusReadDelay(0, SIN|REG|COMPC, chorusCenter );
-				sfxb.chorusReadDelay(0, SIN, chorusCenter + 1);
-			}
 			sfxb.writeRegister(output1, 0);
 			this.getPin("Output").setRegister(output1);
 			}
@@ -149,13 +143,6 @@
 			
 			public double gettap1Center() {
 				return tap1Center;
-			}
-			public void settap2Center(double __param) {
-				tap2Center = __param;	
-			}
-			
-			public double gettap2Center() {
-				return tap2Center;
 			}
 			public void setrate(double __param) {
 				rate = __param;	
