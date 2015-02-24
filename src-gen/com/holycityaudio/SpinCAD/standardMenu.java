@@ -39,6 +39,7 @@
 	import com.holycityaudio.SpinCAD.CADBlocks.MinReverbCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.reverbACADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ChorusCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.ChorusQuadCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ChorusPresetCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ModDelayCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.PhaserCADBlock;
@@ -453,6 +454,15 @@
 		}
 	});
 	mn_modulation.add(mntm_Chorus);
+		
+	final JMenuItem mntm_ChorusQuad = new JMenuItem("Quad Chorus");
+	mntm_ChorusQuad.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new ChorusQuadCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_modulation.add(mntm_ChorusQuad);
 		
 	final JMenuItem mntm_ChorusPreset = new JMenuItem("Preset Chorus");
 	mntm_ChorusPreset.addActionListener(new ActionListener() {
