@@ -34,7 +34,6 @@
 			private int output1;
 			private double delayLength = 512;
 			private double tap1Center = 0.5;
-			private double tap2Center = 0.25;
 			private double rate = 20;
 			private double width = 64;
 			private double delayOffset = -1;

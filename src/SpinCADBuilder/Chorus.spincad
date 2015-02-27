@@ -16,7 +16,7 @@ equ delayLength 512
 equ tap1Center 0.5 
 @sliderLabel tap1Center Tap_1_Center 0.25 0.75 0.5 1000.0 3
 
-equ tap2Center 0.25 
+;equ tap2Center 0.25 
 ;@sliderLabel tap2Center Tap_2_Center 0.0 1.0 0.5 1000.0 2 
 
 equ rate 20
@@ -24,6 +24,8 @@ equ rate 20
 
 equ width 64	// double value of width
 @sliderLabel width LFO_Width 0.0 100.0 3.0 100.0 1
+
+// @comboBox lfoSel 'LFO 0' 'LFO 1'  
 
 
 @isPinConnected Input

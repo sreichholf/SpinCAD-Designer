@@ -50,9 +50,9 @@ class LPF4PControlPanel extends JFrame implements ActionListener {
 	JSlider qSlider;
 	JLabel qLabel;
 
-	private JComboBox<Object> nPoles;
-
 	private LPF4PCADBlock LPF;
+
+	private JComboBox<Object> nPoles;
 	
 	private String listOptions[] = {
 			" 2 poles ",
