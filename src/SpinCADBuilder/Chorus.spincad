@@ -28,7 +28,7 @@ equ width 64	// double value of width
 
 // ComboBox needs to show LFO 0 or LFO 1
 // in block code, need to select between SIN0 or SIN1 parameter
-// setter/getter passes String, for now
+// setter/getter passes index of combobox item, for now
 // let's see if we can make it work.
 
 equ lfoSel 0
@@ -52,7 +52,6 @@ wlds SIN1, 50, 64
 START1: 
 @endif
 
-
 @isPinConnected LFO_Width
 @divideDouble temp width widthMax
 rdax	widthIn, temp
@@ -61,7 +60,6 @@ wrax SIN0_RANGE, 0
 @else
 wrax SIN1_RANGE, 0
 @endif
-
 @endif
 
 // Here's the expression for scaling the LFO rate by the control input.
@@ -82,7 +80,12 @@ ldax input
 ; Write it to delay and clear ACC
 wra delayl,0
 
+@isEqualTo lfoSel 0
 @readChorusTap 0 0 tap1Center delayLength delayOffset 
+@else
+@readChorusTap 1 0 tap1Center delayLength delayOffset 
+@endif
+
 ; @readChorusTap 0 1 tap2Center delayLength delayOffset 
 
 ; Interpolated sample in ACC, write it to DACL and clear ACC
