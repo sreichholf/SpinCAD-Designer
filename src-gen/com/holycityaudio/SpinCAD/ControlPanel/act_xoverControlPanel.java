@@ -29,6 +29,7 @@
 		import javax.swing.JSlider;
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
+		import javax.swing.JComboBox;
 		
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.act_xoverCADBlock;

@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -29,7 +30,9 @@
 		import javax.swing.JSlider;
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
-		
+		import javax.swing.JComboBox;
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.ChorusCADBlock;
 
@@ -46,6 +49,7 @@
 			JLabel  rateLabel;	
 			JSlider widthSlider;
 			JLabel  widthLabel;	
+			private JComboBox lfoSelComboBox; 
 
 		public ChorusControlPanel(ChorusCADBlock genericCADBlock) {
 		
@@ -60,32 +64,47 @@
 
 			
 			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0 * 1),(int) (1024 * 1), (int) (gCB.getdelayLength() * 1));
-			delayLengthSlider.addChangeListener(new ChorusSliderListener());
-			delayLengthLabel = new JLabel();
-			updatedelayLengthLabel();
-			frame.getContentPane().add(delayLengthLabel);
-			frame.getContentPane().add(delayLengthSlider);		
+				delayLengthSlider.addChangeListener(new ChorusSliderListener());
+				delayLengthLabel = new JLabel();
+				updatedelayLengthLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(delayLengthLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(delayLengthSlider);		
 			
 			tap1CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.25 * 1000.0),(int) (0.75 * 1000.0), (int) (gCB.gettap1Center() * 1000.0));
-			tap1CenterSlider.addChangeListener(new ChorusSliderListener());
-			tap1CenterLabel = new JLabel();
-			updatetap1CenterLabel();
-			frame.getContentPane().add(tap1CenterLabel);
-			frame.getContentPane().add(tap1CenterSlider);		
+				tap1CenterSlider.addChangeListener(new ChorusSliderListener());
+				tap1CenterLabel = new JLabel();
+				updatetap1CenterLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap1CenterLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap1CenterSlider);		
 			
 			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
-			rateSlider.addChangeListener(new ChorusSliderListener());
-			rateLabel = new JLabel();
-			updaterateLabel();
-			frame.getContentPane().add(rateLabel);
-			frame.getContentPane().add(rateSlider);		
+				rateSlider.addChangeListener(new ChorusSliderListener());
+				rateLabel = new JLabel();
+				updaterateLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(rateLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(rateSlider);		
 			
 			widthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (100.0 * 100.0), (int) (gCB.getwidth() * 100.0));
-			widthSlider.addChangeListener(new ChorusSliderListener());
-			widthLabel = new JLabel();
-			updatewidthLabel();
-			frame.getContentPane().add(widthLabel);
-			frame.getContentPane().add(widthSlider);		
+				widthSlider.addChangeListener(new ChorusSliderListener());
+				widthLabel = new JLabel();
+				updatewidthLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(widthLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(widthSlider);		
+				lfoSelComboBox = new JComboBox();
+				lfoSelComboBox.addActionListener(new ChorusActionListener());
+				lfoSelComboBox.addItem("LFO 0");
+				lfoSelComboBox.addItem("LFO 1");
+				lfoSelComboBox.setSelectedIndex(gCB.getlfoSel());
+				frame.add(Box.createRigidArea(new Dimension(5,8)));			
+				frame.getContentPane().add(lfoSelComboBox);
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -122,10 +141,20 @@
 		class ChorusItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class ChorusActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			if(arg0.getSource() == lfoSelComboBox) {
+				gCB.setlfoSel((lfoSelComboBox.getSelectedIndex()));
+			}
 			}
 		}
 		private void updatedelayLengthLabel() {

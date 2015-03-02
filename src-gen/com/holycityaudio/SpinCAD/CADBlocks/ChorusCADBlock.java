@@ -10,7 +10,7 @@
  * 
  *   This program is distributed in the hope that it will be useful, 
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
  *   GNU General Public License for more details. 
  * 
  *   You should have received a copy of the GNU General Public License 
@@ -36,6 +36,7 @@
 			private double tap1Center = 0.5;
 			private double rate = 20;
 			private double width = 64;
+			private double lfoSel = 0;
 			private double delayOffset = -1;
 
 			public ChorusCADBlock(int x, int y) {
@@ -47,6 +48,7 @@
 				addControlInputPin(this, "LFO_Rate");
 				addControlInputPin(this, "LFO_Width");
 			// if any control panel elements declared, set hasControlPanel to true
+						hasControlPanel = true;
 						hasControlPanel = true;
 						hasControlPanel = true;
 						hasControlPanel = true;
@@ -100,18 +102,34 @@
 			if(this.getPin("Input").isConnected() == true) {
 			int	delayOffset = sfxb.getDelayMemAllocated() + 1;
 			sfxb.FXallocDelayMem("delayl", delayLength); 
+			if(lfoSel == 0) {
 			sfxb.skip(RUN, 1);
 			sfxb.loadSinLFO(SIN0, 50, 64);
+			} else {
+			sfxb.skip(RUN, 1);
+			sfxb.loadSinLFO(SIN1, 50, 64);
+			}
+			
 			if(this.getPin("LFO_Width").isConnected() == true) {
 			double temp = width / widthMax;
 			sfxb.readRegister(widthIn, temp);
+			if(lfoSel == 0) {
 			sfxb.writeRegister(SIN0_RANGE, 0);
+			} else {
+			sfxb.writeRegister(SIN1_RANGE, 0);
+			}
+			
 			}
 			
 			if(this.getPin("LFO_Rate").isConnected() == true) {
 			double temp1 = rate / rateMax;
 			sfxb.readRegister(rateIn, temp1);
+			if(lfoSel == 0) {
 			sfxb.writeRegister(SIN0_RATE, 0);
+			} else {
+			sfxb.writeRegister(SIN1_RATE, 0);
+			}
+			
 			}
 			
 			sfxb.loadAccumulator(input);
@@ -156,5 +174,12 @@
 			
 			public double getwidth() {
 				return width;
+			}
+			public void setlfoSel(int __param) {
+				lfoSel = (double) __param;	
+			}
+			
+			public int getlfoSel() {
+				return (int) lfoSel;
 			}
 		}	

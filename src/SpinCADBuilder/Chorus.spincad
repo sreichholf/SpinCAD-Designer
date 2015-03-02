@@ -1,12 +1,13 @@
 @name Chorus
 @audioInput input Input
-@audioOutput output1 Output 
+@audioOutput output1 Output
 @controlInput rateIn LFO_Rate 
-@controlInput widthIn LFO_Width
+@controlInput widthIn LFO_Width 
 
 equ rateMax 511
 equ widthMax 16384
-equ output1 reg0
+
+equ output1 reg0 
 
 // total allocated memory buffer for this delay
 // create a Control Panel with a Slider Label
@@ -25,25 +26,42 @@ equ rate 20
 equ width 64	// double value of width
 @sliderLabel width LFO_Width 0.0 100.0 3.0 100.0 1
 
-// @comboBox lfoSel 'LFO 0' 'LFO 1'  
+// ComboBox needs to show LFO 0 or LFO 1
+// in block code, need to select between SIN0 or SIN1 parameter
+// setter/getter passes String, for now
+// let's see if we can make it work.
+
+equ lfoSel 0
+@comboBox lfoSel 'LFO 0' 'LFO 1' 
 
 
 @isPinConnected Input
 ;
 ; Memory declarations
-equ delayOffset -1
+equ delayOffset -1 
 @getBaseAddress 
 mem delayl delayLength ; delay should actually be delay * 2 as panel setting is sweep center
 
-skp run,START
+@isEqualTo lfoSel 0
+skp run,START 
 wlds SIN0, 50, 64
-
 START: 
+@else
+skp run,START1 
+wlds SIN1, 50, 64
+START1: 
+@endif
+
 
 @isPinConnected LFO_Width
 @divideDouble temp width widthMax
 rdax	widthIn, temp
+@isEqualTo lfoSel 0 
 wrax SIN0_RANGE, 0
+@else
+wrax SIN1_RANGE, 0
+@endif
+
 @endif
 
 // Here's the expression for scaling the LFO rate by the control input.
@@ -53,7 +71,11 @@ wrax SIN0_RANGE, 0
 @isPinConnected LFO_Rate
 @divideDouble temp1 rate rateMax
 rdax	rateIn, temp1
+@isEqualTo lfoSel 0 
 wrax SIN0_RATE, 0
+@else
+wrax SIN1_RATE, 0
+@endif
 @endif
 
 ldax input
