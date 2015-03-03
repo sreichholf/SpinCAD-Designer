@@ -134,11 +134,20 @@
 			
 			sfxb.loadAccumulator(input);
 			sfxb.FXwriteDelay("delayl", 0, 0);
+			if(lfoSel == 0) {
 			{
 				int chorusCenter = (int) (delayOffset + (0.5 * tap1Center * delayLength) +  0.25 * delayLength); 
 				sfxb.chorusReadDelay(0, SIN|REG|COMPC, chorusCenter );
 				sfxb.chorusReadDelay(0, SIN, chorusCenter + 1);
 			}
+			} else {
+			{
+				int chorusCenter = (int) (delayOffset + (0.5 * tap1Center * delayLength) +  0.25 * delayLength); 
+				sfxb.chorusReadDelay(1, SIN|REG|COMPC, chorusCenter );
+				sfxb.chorusReadDelay(1, SIN, chorusCenter + 1);
+			}
+			}
+			
 			sfxb.writeRegister(output1, 0);
 			this.getPin("Output").setRegister(output1);
 			}

@@ -49,7 +49,7 @@
 			JLabel  rateLabel;	
 			JSlider widthSlider;
 			JLabel  widthLabel;	
-			private JComboBox lfoSelComboBox; 
+			private JComboBox <String> lfoSelComboBox; 
 
 		public ChorusControlPanel(ChorusCADBlock genericCADBlock) {
 		
@@ -63,7 +63,7 @@
 				frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 
 			
-			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0 * 1),(int) (1024 * 1), (int) (gCB.getdelayLength() * 1));
+			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(128 * 1),(int) (2048 * 1), (int) (gCB.getdelayLength() * 1));
 				delayLengthSlider.addChangeListener(new ChorusSliderListener());
 				delayLengthLabel = new JLabel();
 				updatedelayLengthLabel();
@@ -98,13 +98,15 @@
 				frame.getContentPane().add(widthLabel);
 				frame.add(Box.createRigidArea(new Dimension(5,4)));			
 				frame.getContentPane().add(widthSlider);		
-				lfoSelComboBox = new JComboBox();
-				lfoSelComboBox.addActionListener(new ChorusActionListener());
+				lfoSelComboBox = new JComboBox <String> ();
 				lfoSelComboBox.addItem("LFO 0");
 				lfoSelComboBox.addItem("LFO 1");
+			lfoSelComboBox.addItem("LFO 2");
+			lfoSelComboBox.addItem("LFO 3");
 				lfoSelComboBox.setSelectedIndex(gCB.getlfoSel());
 				frame.add(Box.createRigidArea(new Dimension(5,8)));			
 				frame.getContentPane().add(lfoSelComboBox);
+				lfoSelComboBox.addActionListener(new ChorusActionListener());
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -161,10 +163,10 @@
 		delayLengthLabel.setText("Chorus_Time " + String.format("%4.0f", (1000 * gCB.getdelayLength())/gCB.getSamplerate()));		
 		}		
 		private void updatetap1CenterLabel() {
-		tap1CenterLabel.setText("Tap_1_Center " + String.format("%4.3f", gCB.gettap1Center()));		
+		tap1CenterLabel.setText("Tap_1_Center " + String.format("%4.2f", gCB.gettap1Center()));		
 		}		
 		private void updaterateLabel() {
-		rateLabel.setText("LFO_Rate " + String.format("%4.1f", coeffToLFORate(gCB.getrate())));		
+		rateLabel.setText("LFO_Rate " + String.format("%4.2f", coeffToLFORate(gCB.getrate())));		
 		}		
 		private void updatewidthLabel() {
 		widthLabel.setText("LFO_Width " + String.format("%4.1f", gCB.getwidth()));		
