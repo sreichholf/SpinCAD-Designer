@@ -101,8 +101,6 @@
 				lfoSelComboBox = new JComboBox <String> ();
 				lfoSelComboBox.addItem("LFO 0");
 				lfoSelComboBox.addItem("LFO 1");
-			lfoSelComboBox.addItem("LFO 2");
-			lfoSelComboBox.addItem("LFO 3");
 				lfoSelComboBox.setSelectedIndex(gCB.getlfoSel());
 				frame.add(Box.createRigidArea(new Dimension(5,8)));			
 				frame.getContentPane().add(lfoSelComboBox);
