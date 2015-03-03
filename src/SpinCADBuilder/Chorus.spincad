@@ -25,6 +25,14 @@ equ rate 20
 
 // max width (in samples) of LFO = delayLength/2.
 // this allows the center to be placed from 25% to 75%
+// From AN-001:
+// The equation to calculate the coefficient for the amplitude for a given delay length for use in a WLDS instruction is:
+// Ka = (N * 32767)/16385
+// So, assuming that we want N to be delayLength/2, then Ka should be:
+// Ka = delayLength * (0.5 * 32767/16385)
+// or
+// Ka = delayLength * 0.9999084528532194
+
 equ width 64	// double value of width %
 @sliderLabel width LFO_Width 0.0 100.0 3.0 100.0 1
 
