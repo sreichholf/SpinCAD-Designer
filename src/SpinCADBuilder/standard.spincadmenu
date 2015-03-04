@@ -69,7 +69,7 @@
 @menuitem "Chorus" Chorus 
 @menuitem "Quad Chorus" ChorusQuad 
 @menuitem "Preset Chorus" ChorusPreset 
-// @menuitem "Flanger" Flanger 
+@menuitem "Flanger" Flanger 
 @menuitem "Mod Delay" ModDelay 
 @menuitem "Phaser" Phaser 
 // @menuitem "Allpass" allpass 

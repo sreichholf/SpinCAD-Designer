@@ -22,14 +22,14 @@ package com.holycityaudio.SpinCAD.CADBlocks;
 
 import com.holycityaudio.SpinCAD.SpinFXBlock;
 
-public class FlangerCADBlock extends ModulationCADBlock{
+public class FlangerDemoCADBlock extends ModulationCADBlock{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8818516263438874366L;
 
-	public FlangerCADBlock(int x, int y) {
+	public FlangerDemoCADBlock(int x, int y) {
 		super(x, y);
 		setName("Flanger");
 	}

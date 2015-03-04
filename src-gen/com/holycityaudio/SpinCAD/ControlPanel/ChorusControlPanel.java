@@ -43,8 +43,6 @@
 		// declare the controls
 			JSlider delayLengthSlider;
 			JLabel  delayLengthLabel;	
-			JSlider tap1CenterSlider;
-			JLabel  tap1CenterLabel;	
 			JSlider rateSlider;
 			JLabel  rateLabel;	
 			JSlider widthSlider;
@@ -72,15 +70,6 @@
 				frame.add(Box.createRigidArea(new Dimension(5,4)));			
 				frame.getContentPane().add(delayLengthSlider);		
 			
-			tap1CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.25 * 1000.0),(int) (0.75 * 1000.0), (int) (gCB.gettap1Center() * 1000.0));
-				tap1CenterSlider.addChangeListener(new ChorusSliderListener());
-				tap1CenterLabel = new JLabel();
-				updatetap1CenterLabel();
-				frame.add(Box.createRigidArea(new Dimension(5,4)));			
-				frame.getContentPane().add(tap1CenterLabel);
-				frame.add(Box.createRigidArea(new Dimension(5,4)));			
-				frame.getContentPane().add(tap1CenterSlider);		
-			
 			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
 				rateSlider.addChangeListener(new ChorusSliderListener());
 				rateLabel = new JLabel();
@@ -90,7 +79,7 @@
 				frame.add(Box.createRigidArea(new Dimension(5,4)));			
 				frame.getContentPane().add(rateSlider);		
 			
-			widthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (100.0 * 100.0), (int) (gCB.getwidth() * 100.0));
+			widthSlider = new JSlider(JSlider.HORIZONTAL, (int)(5.0 * 100.0),(int) (100.0 * 100.0), (int) (gCB.getwidth() * 100.0));
 				widthSlider.addChangeListener(new ChorusSliderListener());
 				widthLabel = new JLabel();
 				updatewidthLabel();
@@ -121,10 +110,6 @@
 			if(ce.getSource() == delayLengthSlider) {
 				gCB.setdelayLength((double) (delayLengthSlider.getValue()/1));
 				updatedelayLengthLabel();
-			}
-			if(ce.getSource() == tap1CenterSlider) {
-				gCB.settap1Center((double) (tap1CenterSlider.getValue()/1000.0));
-				updatetap1CenterLabel();
 			}
 			if(ce.getSource() == rateSlider) {
 				gCB.setrate((double) (rateSlider.getValue()/100.0));
@@ -159,9 +144,6 @@
 		}
 		private void updatedelayLengthLabel() {
 		delayLengthLabel.setText("Chorus_Time " + String.format("%4.0f", (1000 * gCB.getdelayLength())/gCB.getSamplerate()));		
-		}		
-		private void updatetap1CenterLabel() {
-		tap1CenterLabel.setText("Tap_1_Center " + String.format("%4.2f", gCB.gettap1Center()));		
 		}		
 		private void updaterateLabel() {
 		rateLabel.setText("LFO_Rate " + String.format("%4.2f", coeffToLFORate(gCB.getrate())));		

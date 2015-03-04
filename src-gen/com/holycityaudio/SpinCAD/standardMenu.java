@@ -41,6 +41,7 @@
 	import com.holycityaudio.SpinCAD.CADBlocks.ChorusCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ChorusQuadCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ChorusPresetCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.FlangerCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ModDelayCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.PhaserCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.RingModCADBlock;
@@ -472,6 +473,15 @@
 		}
 	});
 	mn_modulation.add(mntm_ChorusPreset);
+		
+	final JMenuItem mntm_Flanger = new JMenuItem("Flanger");
+	mntm_Flanger.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new FlangerCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_modulation.add(mntm_Flanger);
 		
 	final JMenuItem mntm_ModDelay = new JMenuItem("Mod Delay");
 	mntm_ModDelay.addActionListener(new ActionListener() {
