@@ -1,6 +1,7 @@
 @name Flanger 
 @audioInput input Input
 @audioOutput output1 Output
+@audioOutput center Center_Tap
 @controlInput rateIn LFO_Rate 
 @controlInput widthIn LFO_Width 
 
@@ -42,7 +43,7 @@ equ lfoSel 0
 @isPinConnected Input
 ;
 ; Memory declarations
-//equ delayOffset -1 
+equ delayOffset -1 
 @getBaseAddress 
 mem delayl delayLength ; delay should actually be delay * 2 as panel setting is sweep center
 
@@ -115,6 +116,13 @@ wra delayl,0
 ; Interpolated sample in ACC, write it to DACL and clear ACC
 wrax output1,0
 ; That's it!
+@isPinConnected Center_Tap
+equ center reg1
+rda delayl^, 1
+wrax center, 0
+@setOutputPin Center_Tap center
+@endif
+
 @setOutputPin Output output1
 @endif
 
