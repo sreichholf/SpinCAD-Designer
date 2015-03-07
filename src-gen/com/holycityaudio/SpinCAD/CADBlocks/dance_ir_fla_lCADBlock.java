@@ -10,7 +10,7 @@
  * 
  *   This program is distributed in the hope that it will be useful, 
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
  *   GNU General Public License for more details. 
  * 
  *   You should have received a copy of the GNU General Public License 
@@ -154,7 +154,7 @@
 			sfxb.FXallocDelayMem("fdelr", 512); 
 			if(this.getPin("Input_L").isConnected() == true) {
 			sfxb.skip(RUN, 1);
-			sfxb.loadRampLFO(0, 0, 512);
+			sfxb.loadRampLFO((int) 0, (int) 0, (int) 512);
 			if(this.getPin("Reverb_Time").isConnected() == true) {
 			sfxb.readRegister(input0, 1.999);
 			} else {

@@ -10,7 +10,7 @@
  * 
  *   This program is distributed in the hope that it will be useful, 
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
  *   GNU General Public License for more details. 
  * 
  *   You should have received a copy of the GNU General Public License 
@@ -153,7 +153,7 @@
 			dacl = sfxb.allocateReg();
 			dacr = sfxb.allocateReg();
 			sfxb.skip(RUN, 1);
-			sfxb.loadSinLFO(SIN0, 12, 160);
+			sfxb.loadSinLFO((int) SIN0,(int) 12, (int) 160);
 			sfxb.FXchorusReadDelay(SIN0, 6, "ap1+", 50);
 			sfxb.FXchorusReadDelay(SIN0, 0, "ap1+", 51);
 			sfxb.FXwriteDelay("ap1+", 100, 0);

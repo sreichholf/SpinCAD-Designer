@@ -27,6 +27,7 @@
 	import com.holycityaudio.SpinCAD.CADBlocks.HPF2PCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.SVF2PCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.LPF4PCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.NotchCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.OneBandEQCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.SixBandEQCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.SingleDelayCADBlock;
@@ -36,17 +37,18 @@
 	import com.holycityaudio.SpinCAD.CADBlocks.eighttapCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.tentapCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.gated_verbCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.rom_rev2CADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.reverb_plateCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.MinReverbCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.reverbACADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ChorusCADBlock;
-	import com.holycityaudio.SpinCAD.CADBlocks.ChorusQuadCADBlock;
-	import com.holycityaudio.SpinCAD.CADBlocks.ChorusPresetCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.FlangerCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.ModDelayCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.PhaserCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.RingModCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.PitchShiftFixedCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.pitchupdownCADBlock;
+	import com.holycityaudio.SpinCAD.CADBlocks.pitch_fourCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.pitchoffsetCADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.Pot0CADBlock;
 	import com.holycityaudio.SpinCAD.CADBlocks.Pot1CADBlock;
@@ -339,6 +341,15 @@
 	});
 	mn_filters.add(mntm_LPF4P);
 		
+	final JMenuItem mntm_Notch = new JMenuItem("Notch");
+	mntm_Notch.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new NotchCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_filters.add(mntm_Notch);
+		
 	final JMenuItem mntm_OneBandEQ = new JMenuItem("1-Band EQ");
 	mntm_OneBandEQ.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -426,6 +437,24 @@
 	});
 	mn_reverb.add(mntm_gated_verb);
 		
+	final JMenuItem mntm_rom_rev2 = new JMenuItem("ROM Reverb 2");
+	mntm_rom_rev2.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new rom_rev2CADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_reverb.add(mntm_rom_rev2);
+		
+	final JMenuItem mntm_reverb_plate = new JMenuItem("Plate Reverb");
+	mntm_reverb_plate.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new reverb_plateCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_reverb.add(mntm_reverb_plate);
+		
 	final JMenuItem mntm_MinReverb = new JMenuItem("Small Reverb");
 	mntm_MinReverb.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -455,24 +484,6 @@
 		}
 	});
 	mn_modulation.add(mntm_Chorus);
-		
-	final JMenuItem mntm_ChorusQuad = new JMenuItem("Quad Chorus");
-	mntm_ChorusQuad.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			SpinCADBlock pcB = new ChorusQuadCADBlock(50, 100);
-			f.dropBlock(panel, pcB);
-		}
-	});
-	mn_modulation.add(mntm_ChorusQuad);
-		
-	final JMenuItem mntm_ChorusPreset = new JMenuItem("Preset Chorus");
-	mntm_ChorusPreset.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			SpinCADBlock pcB = new ChorusPresetCADBlock(50, 100);
-			f.dropBlock(panel, pcB);
-		}
-	});
-	mn_modulation.add(mntm_ChorusPreset);
 		
 	final JMenuItem mntm_Flanger = new JMenuItem("Flanger");
 	mntm_Flanger.addActionListener(new ActionListener() {
@@ -530,6 +541,15 @@
 		}
 	});
 	mn_pitch.add(mntm_pitchupdown);
+		
+	final JMenuItem mntm_pitch_four = new JMenuItem("Pitch Four");
+	mntm_pitch_four.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			SpinCADBlock pcB = new pitch_fourCADBlock(50, 100);
+			f.dropBlock(panel, pcB);
+		}
+	});
+	mn_pitch.add(mntm_pitch_four);
 		
 	final JMenuItem mntm_pitchoffset = new JMenuItem("Pitch Offset");
 	mntm_pitchoffset.addActionListener(new ActionListener() {

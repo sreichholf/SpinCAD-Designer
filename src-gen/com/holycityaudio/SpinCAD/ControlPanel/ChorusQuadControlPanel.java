@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.ChorusQuadCADBlock;
 
@@ -67,53 +69,67 @@
 
 			
 			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0 * 1),(int) (1024 * 1), (int) (gCB.getdelayLength() * 1));
-			delayLengthSlider.addChangeListener(new ChorusQuadSliderListener());
-			delayLengthLabel = new JLabel();
-			updatedelayLengthLabel();
-			frame.getContentPane().add(delayLengthLabel);
-			frame.getContentPane().add(delayLengthSlider);		
+				delayLengthSlider.addChangeListener(new ChorusQuadSliderListener());
+				delayLengthLabel = new JLabel();
+				updatedelayLengthLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(delayLengthLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(delayLengthSlider);		
 			
 			tap1CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.25 * 1000.0),(int) (0.75 * 1000.0), (int) (gCB.gettap1Center() * 1000.0));
-			tap1CenterSlider.addChangeListener(new ChorusQuadSliderListener());
-			tap1CenterLabel = new JLabel();
-			updatetap1CenterLabel();
-			frame.getContentPane().add(tap1CenterLabel);
-			frame.getContentPane().add(tap1CenterSlider);		
+				tap1CenterSlider.addChangeListener(new ChorusQuadSliderListener());
+				tap1CenterLabel = new JLabel();
+				updatetap1CenterLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap1CenterLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap1CenterSlider);		
 			
 			tap2CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap2Center() * 1000.0));
-			tap2CenterSlider.addChangeListener(new ChorusQuadSliderListener());
-			tap2CenterLabel = new JLabel();
-			updatetap2CenterLabel();
-			frame.getContentPane().add(tap2CenterLabel);
-			frame.getContentPane().add(tap2CenterSlider);		
+				tap2CenterSlider.addChangeListener(new ChorusQuadSliderListener());
+				tap2CenterLabel = new JLabel();
+				updatetap2CenterLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap2CenterLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap2CenterSlider);		
 			
 			tap3CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap3Center() * 1000.0));
-			tap3CenterSlider.addChangeListener(new ChorusQuadSliderListener());
-			tap3CenterLabel = new JLabel();
-			updatetap3CenterLabel();
-			frame.getContentPane().add(tap3CenterLabel);
-			frame.getContentPane().add(tap3CenterSlider);		
+				tap3CenterSlider.addChangeListener(new ChorusQuadSliderListener());
+				tap3CenterLabel = new JLabel();
+				updatetap3CenterLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap3CenterLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap3CenterSlider);		
 			
 			tap4CenterSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap4Center() * 1000.0));
-			tap4CenterSlider.addChangeListener(new ChorusQuadSliderListener());
-			tap4CenterLabel = new JLabel();
-			updatetap4CenterLabel();
-			frame.getContentPane().add(tap4CenterLabel);
-			frame.getContentPane().add(tap4CenterSlider);		
+				tap4CenterSlider.addChangeListener(new ChorusQuadSliderListener());
+				tap4CenterLabel = new JLabel();
+				updatetap4CenterLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap4CenterLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap4CenterSlider);		
 			
-			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
-			rateSlider.addChangeListener(new ChorusQuadSliderListener());
-			rateLabel = new JLabel();
-			updaterateLabel();
-			frame.getContentPane().add(rateLabel);
-			frame.getContentPane().add(rateSlider);		
+			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
+				rateSlider.addChangeListener(new ChorusQuadSliderListener());
+				rateLabel = new JLabel();
+				updaterateLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(rateLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(rateSlider);		
 			
 			widthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (100.0 * 100.0), (int) (gCB.getwidth() * 100.0));
-			widthSlider.addChangeListener(new ChorusQuadSliderListener());
-			widthLabel = new JLabel();
-			updatewidthLabel();
-			frame.getContentPane().add(widthLabel);
-			frame.getContentPane().add(widthSlider);		
+				widthSlider.addChangeListener(new ChorusQuadSliderListener());
+				widthLabel = new JLabel();
+				updatewidthLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(widthLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(widthSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -162,10 +178,17 @@
 		class ChorusQuadItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class ChorusQuadActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updatedelayLengthLabel() {

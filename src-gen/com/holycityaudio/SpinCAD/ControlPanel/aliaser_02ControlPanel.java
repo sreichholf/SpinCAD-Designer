@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.aliaser_02CADBlock;
 
@@ -57,18 +59,22 @@
 
 			
 			ripLowSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.001 * 1000.0),(int) (0.015 * 1000.0), (int) (gCB.getripLow() * 1000.0));
-			ripLowSlider.addChangeListener(new aliaser_02SliderListener());
-			ripLowLabel = new JLabel();
-			updateripLowLabel();
-			frame.getContentPane().add(ripLowLabel);
-			frame.getContentPane().add(ripLowSlider);		
+				ripLowSlider.addChangeListener(new aliaser_02SliderListener());
+				ripLowLabel = new JLabel();
+				updateripLowLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(ripLowLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(ripLowSlider);		
 			
 			ripHighSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.02 * 1000.0),(int) (0.2 * 1000.0), (int) (gCB.getripHigh() * 1000.0));
-			ripHighSlider.addChangeListener(new aliaser_02SliderListener());
-			ripHighLabel = new JLabel();
-			updateripHighLabel();
-			frame.getContentPane().add(ripHighLabel);
-			frame.getContentPane().add(ripHighSlider);		
+				ripHighSlider.addChangeListener(new aliaser_02SliderListener());
+				ripHighLabel = new JLabel();
+				updateripHighLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(ripHighLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(ripHighSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -97,10 +103,17 @@
 		class aliaser_02ItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class aliaser_02ActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updateripLowLabel() {

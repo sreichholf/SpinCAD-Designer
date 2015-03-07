@@ -70,7 +70,7 @@
 				frame.add(Box.createRigidArea(new Dimension(5,4)));			
 				frame.getContentPane().add(delayLengthSlider);		
 			
-			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
+			rateSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 100.0),(int) (511.0 * 100.0), (int) ((gCB.getrate()) * 100.0));
 				rateSlider.addChangeListener(new FlangerSliderListener());
 				rateLabel = new JLabel();
 				updaterateLabel();

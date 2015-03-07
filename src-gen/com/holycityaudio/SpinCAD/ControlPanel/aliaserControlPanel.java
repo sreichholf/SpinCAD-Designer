@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.aliaserCADBlock;
 
@@ -57,18 +59,22 @@
 
 			
 			inputGainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.getinputGain() * 1000.0));
-			inputGainSlider.addChangeListener(new aliaserSliderListener());
-			inputGainLabel = new JLabel();
-			updateinputGainLabel();
-			frame.getContentPane().add(inputGainLabel);
-			frame.getContentPane().add(inputGainSlider);		
+				inputGainSlider.addChangeListener(new aliaserSliderListener());
+				inputGainLabel = new JLabel();
+				updateinputGainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(inputGainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(inputGainSlider);		
 			
 			ripLevelSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (0.6 * 1000.0), (int) (gCB.getripLevel() * 1000.0));
-			ripLevelSlider.addChangeListener(new aliaserSliderListener());
-			ripLevelLabel = new JLabel();
-			updateripLevelLabel();
-			frame.getContentPane().add(ripLevelLabel);
-			frame.getContentPane().add(ripLevelSlider);		
+				ripLevelSlider.addChangeListener(new aliaserSliderListener());
+				ripLevelLabel = new JLabel();
+				updateripLevelLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(ripLevelLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(ripLevelSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -97,10 +103,17 @@
 		class aliaserItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class aliaserActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updateinputGainLabel() {

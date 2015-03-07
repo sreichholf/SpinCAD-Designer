@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.gated_verbCADBlock;
 
@@ -71,10 +73,17 @@
 		class gated_verbItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class gated_verbActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		

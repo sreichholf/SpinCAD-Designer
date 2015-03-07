@@ -10,7 +10,7 @@
  * 
  *   This program is distributed in the hope that it will be useful, 
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
  *   GNU General Public License for more details. 
  * 
  *   You should have received a copy of the GNU General Public License 
@@ -140,7 +140,7 @@
 			sfxb.writeRegister(lp1, 0);
 			sfxb.writeRegister(lp2, 0);
 			sfxb.writeRegister(efil, 0);
-			sfxb.loadSinLFO(SIN0, 12, 100);
+			sfxb.loadSinLFO((int) SIN0,(int) 12, (int) 100);
 			sfxb.readRegister(adcl, 0.5);
 			sfxb.readRegister(adcr, 0.5);
 			sfxb.writeRegister(mono, 0);

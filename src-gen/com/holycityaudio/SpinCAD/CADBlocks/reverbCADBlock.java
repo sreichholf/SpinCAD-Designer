@@ -10,7 +10,7 @@
  * 
  *   This program is distributed in the hope that it will be useful, 
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
  *   GNU General Public License for more details. 
  * 
  *   You should have received a copy of the GNU General Public License 
@@ -165,7 +165,7 @@
 			sfxb.scaleOffset(0.55, 0.3);
 			sfxb.writeRegister(rt, 0);
 			sfxb.skip(RUN, 1);
-			sfxb.loadRampLFO(0, 0, 4096);
+			sfxb.loadRampLFO((int) 0, (int) 0, (int) 4096);
 			sfxb.readRegister(input, 1.0);
 			sfxb.FXwriteDelay("pdel", 0, 0);
 			sfxb.FXchorusReadDelay(RMP0, REG|COMPC, "pdel", 0);
@@ -259,8 +259,8 @@
 			sfxb.FXreadDelay("del4+", 2267, 1);
 			sfxb.writeRegister(output, 0);
 			sfxb.skip(RUN, 2);
-			sfxb.loadSinLFO(SIN0, 45, 50);
-			sfxb.loadSinLFO(SIN1, 53, 50);
+			sfxb.loadSinLFO((int) SIN0,(int) 45, (int) 50);
+			sfxb.loadSinLFO((int) SIN1,(int) 53, (int) 50);
 			sfxb.FXchorusReadDelay(SIN0, REG|COMPC, "ap1+", 50);
 			sfxb.FXchorusReadDelay(SIN0, 0, "ap1+", 51);
 			sfxb.FXwriteDelay("ap1+", 100, 0);

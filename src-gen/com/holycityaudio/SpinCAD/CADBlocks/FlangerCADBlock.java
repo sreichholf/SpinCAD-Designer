@@ -105,10 +105,10 @@
 			sfxb.FXallocDelayMem("delayl", delayLength); 
 			if(lfoSel == 0) {
 			sfxb.skip(RUN, 1);
-			sfxb.loadSinLFO(SIN0, 50, 64);
+			sfxb.loadSinLFO((int) SIN0,(int) 50, (int) 64);
 			} else {
 			sfxb.skip(RUN, 1);
-			sfxb.loadSinLFO(SIN1, 50, 64);
+			sfxb.loadSinLFO((int) SIN1,(int) 50, (int) 64);
 			}
 			
 			if(this.getPin("LFO_Width").isConnected() == true) {

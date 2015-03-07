@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.Shelving_lowpassCADBlock;
 
@@ -57,18 +59,22 @@
 
 			
 			freqSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.001 * 1000.0),(int) (0.250 * 1000.0), (int) (gCB.getfreq() * 1000.0));
-			freqSlider.addChangeListener(new Shelving_lowpassSliderListener());
-			freqLabel = new JLabel();
-			updatefreqLabel();
-			frame.getContentPane().add(freqLabel);
-			frame.getContentPane().add(freqSlider);		
+				freqSlider.addChangeListener(new Shelving_lowpassSliderListener());
+				freqLabel = new JLabel();
+				updatefreqLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(freqLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(freqSlider);		
 			
 			shelfSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.getshelf() * 1000.0));
-			shelfSlider.addChangeListener(new Shelving_lowpassSliderListener());
-			shelfLabel = new JLabel();
-			updateshelfLabel();
-			frame.getContentPane().add(shelfLabel);
-			frame.getContentPane().add(shelfSlider);		
+				shelfSlider.addChangeListener(new Shelving_lowpassSliderListener());
+				shelfLabel = new JLabel();
+				updateshelfLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(shelfLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(shelfSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -97,10 +103,17 @@
 		class Shelving_lowpassItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class Shelving_lowpassActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updatefreqLabel() {

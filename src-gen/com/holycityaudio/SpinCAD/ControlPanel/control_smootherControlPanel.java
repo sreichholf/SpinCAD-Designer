@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.control_smootherCADBlock;
 
@@ -55,11 +57,13 @@
 
 			
 			filtSlider = new JSlider(JSlider.HORIZONTAL, (int)(Math.log10(0.51) * 100.0),(int) (Math.log10(15.00) * 100.0), (int) (Math.log10(gCB.getfilt()) * 100));
-			filtSlider.addChangeListener(new control_smootherSliderListener());
-			filtLabel = new JLabel();
-			updatefiltLabel();
-			frame.getContentPane().add(filtLabel);
-			frame.getContentPane().add(filtSlider);		
+				filtSlider.addChangeListener(new control_smootherSliderListener());
+				filtLabel = new JLabel();
+				updatefiltLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(filtLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(filtSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -84,10 +88,17 @@
 		class control_smootherItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class control_smootherActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updatefiltLabel() {

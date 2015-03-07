@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.eighttapCADBlock;
 
@@ -73,74 +75,94 @@
 
 			
 			inputGainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.getinputGain() * 1000.0));
-			inputGainSlider.addChangeListener(new eighttapSliderListener());
-			inputGainLabel = new JLabel();
-			updateinputGainLabel();
-			frame.getContentPane().add(inputGainLabel);
-			frame.getContentPane().add(inputGainSlider);		
+				inputGainSlider.addChangeListener(new eighttapSliderListener());
+				inputGainLabel = new JLabel();
+				updateinputGainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(inputGainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(inputGainSlider);		
 			
 			delayLengthSlider = new JSlider(JSlider.HORIZONTAL, (int)(0 * 1),(int) (32767 * 1), (int) (gCB.getdelayLength() * 1));
-			delayLengthSlider.addChangeListener(new eighttapSliderListener());
-			delayLengthLabel = new JLabel();
-			updatedelayLengthLabel();
-			frame.getContentPane().add(delayLengthLabel);
-			frame.getContentPane().add(delayLengthSlider);		
+				delayLengthSlider.addChangeListener(new eighttapSliderListener());
+				delayLengthLabel = new JLabel();
+				updatedelayLengthLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(delayLengthLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(delayLengthSlider);		
 			
 			tap1GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap1Gain() * 1000.0));
-			tap1GainSlider.addChangeListener(new eighttapSliderListener());
-			tap1GainLabel = new JLabel();
-			updatetap1GainLabel();
-			frame.getContentPane().add(tap1GainLabel);
-			frame.getContentPane().add(tap1GainSlider);		
+				tap1GainSlider.addChangeListener(new eighttapSliderListener());
+				tap1GainLabel = new JLabel();
+				updatetap1GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap1GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap1GainSlider);		
 			
 			tap2GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap2Gain() * 1000.0));
-			tap2GainSlider.addChangeListener(new eighttapSliderListener());
-			tap2GainLabel = new JLabel();
-			updatetap2GainLabel();
-			frame.getContentPane().add(tap2GainLabel);
-			frame.getContentPane().add(tap2GainSlider);		
+				tap2GainSlider.addChangeListener(new eighttapSliderListener());
+				tap2GainLabel = new JLabel();
+				updatetap2GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap2GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap2GainSlider);		
 			
 			tap3GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap3Gain() * 1000.0));
-			tap3GainSlider.addChangeListener(new eighttapSliderListener());
-			tap3GainLabel = new JLabel();
-			updatetap3GainLabel();
-			frame.getContentPane().add(tap3GainLabel);
-			frame.getContentPane().add(tap3GainSlider);		
+				tap3GainSlider.addChangeListener(new eighttapSliderListener());
+				tap3GainLabel = new JLabel();
+				updatetap3GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap3GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap3GainSlider);		
 			
 			tap4GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap4Gain() * 1000.0));
-			tap4GainSlider.addChangeListener(new eighttapSliderListener());
-			tap4GainLabel = new JLabel();
-			updatetap4GainLabel();
-			frame.getContentPane().add(tap4GainLabel);
-			frame.getContentPane().add(tap4GainSlider);		
+				tap4GainSlider.addChangeListener(new eighttapSliderListener());
+				tap4GainLabel = new JLabel();
+				updatetap4GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap4GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap4GainSlider);		
 			
 			tap5GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap5Gain() * 1000.0));
-			tap5GainSlider.addChangeListener(new eighttapSliderListener());
-			tap5GainLabel = new JLabel();
-			updatetap5GainLabel();
-			frame.getContentPane().add(tap5GainLabel);
-			frame.getContentPane().add(tap5GainSlider);		
+				tap5GainSlider.addChangeListener(new eighttapSliderListener());
+				tap5GainLabel = new JLabel();
+				updatetap5GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap5GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap5GainSlider);		
 			
 			tap6GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap6Gain() * 1000.0));
-			tap6GainSlider.addChangeListener(new eighttapSliderListener());
-			tap6GainLabel = new JLabel();
-			updatetap6GainLabel();
-			frame.getContentPane().add(tap6GainLabel);
-			frame.getContentPane().add(tap6GainSlider);		
+				tap6GainSlider.addChangeListener(new eighttapSliderListener());
+				tap6GainLabel = new JLabel();
+				updatetap6GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap6GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap6GainSlider);		
 			
 			tap7GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap7Gain() * 1000.0));
-			tap7GainSlider.addChangeListener(new eighttapSliderListener());
-			tap7GainLabel = new JLabel();
-			updatetap7GainLabel();
-			frame.getContentPane().add(tap7GainLabel);
-			frame.getContentPane().add(tap7GainSlider);		
+				tap7GainSlider.addChangeListener(new eighttapSliderListener());
+				tap7GainLabel = new JLabel();
+				updatetap7GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap7GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap7GainSlider);		
 			
 			tap8GainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0 * 1000.0),(int) (1.0 * 1000.0), (int) (gCB.gettap8Gain() * 1000.0));
-			tap8GainSlider.addChangeListener(new eighttapSliderListener());
-			tap8GainLabel = new JLabel();
-			updatetap8GainLabel();
-			frame.getContentPane().add(tap8GainLabel);
-			frame.getContentPane().add(tap8GainSlider);		
+				tap8GainSlider.addChangeListener(new eighttapSliderListener());
+				tap8GainLabel = new JLabel();
+				updatetap8GainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap8GainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(tap8GainSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -201,10 +223,17 @@
 		class eighttapItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class eighttapActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updateinputGainLabel() {

@@ -10,7 +10,7 @@
  * 
  *   This program is distributed in the hope that it will be useful, 
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
  *   GNU General Public License for more details. 
  * 
  *   You should have received a copy of the GNU General Public License 
@@ -112,7 +112,7 @@
 			int	delayOffset = sfxb.getDelayMemAllocated() + 1;
 			sfxb.FXallocDelayMem("delayl", delayLength); 
 			sfxb.skip(RUN, 1);
-			sfxb.loadSinLFO(SIN0, 50, 64);
+			sfxb.loadSinLFO((int) SIN0,(int) 50, (int) 64);
 			if(this.getPin("LFO_Width").isConnected() == true) {
 			double temp = width / widthMax;
 			sfxb.readRegister(widthIn, temp);

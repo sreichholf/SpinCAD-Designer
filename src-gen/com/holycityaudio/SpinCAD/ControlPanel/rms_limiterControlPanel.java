@@ -22,6 +22,7 @@
 		import javax.swing.SwingUtilities;
 		import javax.swing.event.ChangeEvent;
 		import javax.swing.event.ChangeListener;
+		import java.awt.event.ActionEvent;
 		import java.awt.event.WindowEvent;
 		import java.awt.event.WindowListener;
 		import java.awt.event.ItemEvent;
@@ -30,7 +31,8 @@
 		import javax.swing.JLabel;
 		import javax.swing.JCheckBox;
 		import javax.swing.JComboBox;
-		
+		import javax.swing.Box;
+		import java.awt.Dimension;
 		import com.holycityaudio.SpinCAD.spinCADControlPanel;
 		import com.holycityaudio.SpinCAD.CADBlocks.rms_limiterCADBlock;
 
@@ -57,18 +59,22 @@
 
 			
 			inGainSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.1 * 100.0),(int) (1.0 * 100.0), (int) (gCB.getinGain() * 100.0));
-			inGainSlider.addChangeListener(new rms_limiterSliderListener());
-			inGainLabel = new JLabel();
-			updateinGainLabel();
-			frame.getContentPane().add(inGainLabel);
-			frame.getContentPane().add(inGainSlider);		
+				inGainSlider.addChangeListener(new rms_limiterSliderListener());
+				inGainLabel = new JLabel();
+				updateinGainLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(inGainLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(inGainSlider);		
 			
 			filtSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.0001 * 10000.0),(int) (0.01 * 10000.0), (int) (gCB.getfilt() * 10000.0));
-			filtSlider.addChangeListener(new rms_limiterSliderListener());
-			filtLabel = new JLabel();
-			updatefiltLabel();
-			frame.getContentPane().add(filtLabel);
-			frame.getContentPane().add(filtSlider);		
+				filtSlider.addChangeListener(new rms_limiterSliderListener());
+				filtLabel = new JLabel();
+				updatefiltLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(filtLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(filtSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -97,10 +103,17 @@
 		class rms_limiterItemListener implements java.awt.event.ItemListener { 
 		public void stateChanged(ChangeEvent ce) {
 			}
-
-			@Override
+			
+		@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
+			}
+		}
+		
+		// add action listener 
+		class rms_limiterActionListener implements java.awt.event.ActionListener { 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
 		private void updateinGainLabel() {
