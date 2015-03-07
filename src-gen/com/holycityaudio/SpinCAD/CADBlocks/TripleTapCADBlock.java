@@ -90,25 +90,21 @@
 			if(sp != null) {
 				adcl = sp.getRegister();
 			}
-			
 			sp = this.getPin("Delay_Time_1").getPinConnection();
 			int cIn1 = -1;
 			if(sp != null) {
 				cIn1 = sp.getRegister();
 			}
-			
 			sp = this.getPin("Delay_Time_2").getPinConnection();
 			int cIn2 = -1;
 			if(sp != null) {
 				cIn2 = sp.getRegister();
 			}
-			
 			sp = this.getPin("Delay_Time_3").getPinConnection();
 			int cIn3 = -1;
 			if(sp != null) {
 				cIn3 = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			int	delayOffset = sfxb.getDelayMemAllocated() + 1;

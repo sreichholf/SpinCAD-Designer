@@ -84,19 +84,16 @@
 			if(sp != null) {
 				input = sp.getRegister();
 			}
-			
 			sp = this.getPin("LFO_Rate").getPinConnection();
 			int rateIn = -1;
 			if(sp != null) {
 				rateIn = sp.getRegister();
 			}
-			
 			sp = this.getPin("LFO_Width").getPinConnection();
 			int widthIn = -1;
 			if(sp != null) {
 				widthIn = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			output1 = sfxb.allocateReg();

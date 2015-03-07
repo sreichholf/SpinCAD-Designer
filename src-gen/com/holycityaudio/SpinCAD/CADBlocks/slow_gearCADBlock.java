@@ -77,13 +77,11 @@
 			if(sp != null) {
 				adcl = sp.getRegister();
 			}
-			
 			sp = this.getPin("Attack").getPinConnection();
 			int input0 = -1;
 			if(sp != null) {
 				input0 = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			in = sfxb.allocateReg();

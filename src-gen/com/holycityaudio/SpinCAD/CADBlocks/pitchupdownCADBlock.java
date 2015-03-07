@@ -71,7 +71,6 @@
 				input = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			if(this.getPin("Input").isConnected() == true) {
 			pitch1 = sfxb.allocateReg();

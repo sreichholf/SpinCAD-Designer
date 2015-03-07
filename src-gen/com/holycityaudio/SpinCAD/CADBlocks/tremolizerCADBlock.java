@@ -71,13 +71,11 @@
 			if(sp != null) {
 				input = sp.getRegister();
 			}
-			
 			sp = this.getPin("LFO_Width").getPinConnection();
 			int width = -1;
 			if(sp != null) {
 				width = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			output = sfxb.allocateReg();

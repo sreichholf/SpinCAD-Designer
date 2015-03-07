@@ -71,7 +71,6 @@
 				input = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			filtReg = sfxb.allocateReg();
 			if(this.getPin("Input").isConnected() == true) {

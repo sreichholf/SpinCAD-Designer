@@ -75,7 +75,6 @@
 				rate = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			output = sfxb.allocateReg();
 			hold = sfxb.allocateReg();

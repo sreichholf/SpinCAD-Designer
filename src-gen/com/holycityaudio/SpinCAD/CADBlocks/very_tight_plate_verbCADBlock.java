@@ -93,31 +93,26 @@
 			if(sp != null) {
 				adcl = sp.getRegister();
 			}
-			
 			sp = this.getPin("Input_Right").getPinConnection();
 			int adcr = -1;
 			if(sp != null) {
 				adcr = sp.getRegister();
 			}
-			
 			sp = this.getPin("Reverb_Time").getPinConnection();
 			int input0 = -1;
 			if(sp != null) {
 				input0 = sp.getRegister();
 			}
-			
 			sp = this.getPin("LF_Loss").getPinConnection();
 			int input1 = -1;
 			if(sp != null) {
 				input1 = sp.getRegister();
 			}
-			
 			sp = this.getPin("HF_Loss").getPinConnection();
 			int input2 = -1;
 			if(sp != null) {
 				input2 = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			sfxb.FXallocDelayMem("api1l", 123); 

@@ -72,7 +72,6 @@
 				adcl = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			mono = sfxb.allocateReg();
 			abs = sfxb.allocateReg();

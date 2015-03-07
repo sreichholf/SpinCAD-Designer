@@ -73,7 +73,6 @@
 				adcl = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			sigin = sfxb.allocateReg();
 			avg = sfxb.allocateReg();

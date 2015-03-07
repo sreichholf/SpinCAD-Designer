@@ -77,19 +77,16 @@
 			if(sp != null) {
 				input = sp.getRegister();
 			}
-			
 			sp = this.getPin("Frequency").getPinConnection();
 			int freqIn = -1;
 			if(sp != null) {
 				freqIn = sp.getRegister();
 			}
-			
 			sp = this.getPin("Shelf").getPinConnection();
 			int shelfIn = -1;
 			if(sp != null) {
 				shelfIn = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			output = sfxb.allocateReg();

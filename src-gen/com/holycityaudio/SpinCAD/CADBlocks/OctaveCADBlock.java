@@ -69,7 +69,6 @@
 				adcl = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			output1 = sfxb.allocateReg();
 			if(this.getPin("Input").isConnected() == true) {

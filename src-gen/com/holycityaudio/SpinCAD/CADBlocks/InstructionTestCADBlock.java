@@ -82,31 +82,26 @@
 			if(sp != null) {
 				adcl = sp.getRegister();
 			}
-			
 			sp = this.getPin("Input_Right").getPinConnection();
 			int adcr = -1;
 			if(sp != null) {
 				adcr = sp.getRegister();
 			}
-			
 			sp = this.getPin("Reverb").getPinConnection();
 			int pot0 = -1;
 			if(sp != null) {
 				pot0 = sp.getRegister();
 			}
-			
 			sp = this.getPin("Phase_Rate").getPinConnection();
 			int pot1 = -1;
 			if(sp != null) {
 				pot1 = sp.getRegister();
 			}
-			
 			sp = this.getPin("Phase_Width").getPinConnection();
 			int pot2 = -1;
 			if(sp != null) {
 				pot2 = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			sfxb.FXallocDelayMem("buffer", 1000); 

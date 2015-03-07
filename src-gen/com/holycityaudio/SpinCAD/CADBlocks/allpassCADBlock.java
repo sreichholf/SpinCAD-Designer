@@ -70,13 +70,11 @@
 			if(sp != null) {
 				input = sp.getRegister();
 			}
-			
 			sp = this.getPin("Phase").getPinConnection();
 			int phase = -1;
 			if(sp != null) {
 				phase = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			sfxb.FXallocDelayMem("delay", 1); 

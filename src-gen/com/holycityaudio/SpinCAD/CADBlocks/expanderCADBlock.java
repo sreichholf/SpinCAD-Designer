@@ -80,13 +80,11 @@
 			if(sp != null) {
 				input = sp.getRegister();
 			}
-			
 			sp = this.getPin("Crush").getPinConnection();
 			int crusher = -1;
 			if(sp != null) {
 				crusher = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			old = sfxb.allocateReg();
