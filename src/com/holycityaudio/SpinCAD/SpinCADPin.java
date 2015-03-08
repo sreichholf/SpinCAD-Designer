@@ -71,7 +71,26 @@ public class SpinCADPin implements Serializable {
 		p.numConnections++;
 	}
 
-	public SpinCADBlock getBlockConnection() {
+	public void deletePinConnection() {
+		connectorPin.numConnections--;
+		if(connectorPin.numConnections == 0) {
+			connectorPin.connectorPin = null;
+			connectorPin.connectorBlock = null;
+		}
+
+		numConnections--;
+		if(numConnections == 0) {
+			connectorPin = null;
+			connectorBlock = null;
+		}
+	}
+
+	public boolean isConnected() {
+		if (numConnections > 0) {
+			return true;
+		} else
+			return false;
+	}	public SpinCADBlock getBlockConnection() {
 		return connectorBlock;
 	}
 
@@ -163,20 +182,5 @@ public class SpinCADPin implements Serializable {
 			return false;
 	}
 
-	public void deletePinConnection() {
-		numConnections--;
-		connectorPin.numConnections--;
-		// TODO debug
-//		if(connectorPin.numConnections == 0) {
-			connectorPin = null;
-//		}
-	}
-
-	public boolean isConnected() {
-		if (numConnections > 0) {
-			return true;
-		} else
-			return false;
-	}
 }
 
