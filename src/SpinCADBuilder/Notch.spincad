@@ -1,11 +1,9 @@
 @name Notch
 @audioInput input Input
-@audioOutput output Output  
+@audioOutput notch Output_Notch  
+@audioOutput bp_dly Output_Bandpass  
 @controlInput freq Freqeuncy
 @controlInput res Resonance
-
-equ ripLevel 0.5
-@sliderLabel ripLevel Rip_Level 0.0 0.6 0.5 1000.0 2
 
 @isPinConnected Input 
 ; Pot0 is frequency
@@ -23,7 +21,6 @@ equ hp      reg4   ;high pass
 equ notch      reg5   ;notch output
 equ p0fil      reg6
 equ p1fil      reg7
-equ output reg8 
 
 ;Frequency control
    rdax   freq,1      ;get freq control
@@ -67,8 +64,8 @@ equ output reg8
    ldax   lp_dly
    rdax   hp,1
 
-
 ;Output:
-   wrax   output,1            ;write both outputs
-@setOutputPin Output output
+   wrax   notch,1            ;write outputs
+@setOutputPin Output_Bandpass bp_dly
+@setOutputPin Output_Notch notch
 @endif
