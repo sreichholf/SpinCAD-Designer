@@ -29,6 +29,7 @@
 			private static final long serialVersionUID = 1L;
 			private reverbControlPanel cp = null;
 			
+			private double gain = 0.5;
 			private int hpf4;
 			private int lpf4;
 			private int temp;
@@ -36,10 +37,10 @@
 			private int iapout;
 			private int pdelo;
 			private int output;
-			private double kfh = 0.01;
-			private double kfl = 0.4;
 			private double kiap = 0.5;
 			private double klap = 0.6;
+			private double kfh = 0.01;
+			private double kfl = 0.4;
 			private double nAPs = 2;
 			private double nDLs = 3;
 			private int hpf1;
@@ -59,7 +60,8 @@
 				addControlInputPin(this, "Pot1");
 				addControlInputPin(this, "Pot2");
 			// if any control panel elements declared, set hasControlPanel to true
-			hasControlPanel = true;
+						hasControlPanel = true;
+						hasControlPanel = true;
 						hasControlPanel = true;
 						hasControlPanel = true;
 						}
@@ -92,25 +94,21 @@
 			if(sp != null) {
 				input = sp.getRegister();
 			}
-			
 			sp = this.getPin("Pot0").getPinConnection();
 			int input0 = -1;
 			if(sp != null) {
 				input0 = sp.getRegister();
 			}
-			
 			sp = this.getPin("Pot1").getPinConnection();
 			int input1 = -1;
 			if(sp != null) {
 				input1 = sp.getRegister();
 			}
-			
 			sp = this.getPin("Pot2").getPinConnection();
 			int input2 = -1;
 			if(sp != null) {
 				input2 = sp.getRegister();
 			}
-			
 			
 			// finally, generate the instructions
 			sfxb.FXallocDelayMem("pdel", 4600); 
@@ -166,7 +164,7 @@
 			sfxb.writeRegister(rt, 0);
 			sfxb.skip(RUN, 1);
 			sfxb.loadRampLFO((int) 0, (int) 0, (int) 4096);
-			sfxb.readRegister(input, 1.0);
+			sfxb.readRegister(input, gain);
 			sfxb.FXwriteDelay("pdel", 0, 0);
 			sfxb.FXchorusReadDelay(RMP0, REG|COMPC, "pdel", 0);
 			sfxb.FXchorusReadDelay(RMP0, 0, "pdel+", 1);
@@ -277,6 +275,13 @@
 			}
 			
 			// create setters and getter for control panel variables
+			public void setgain(double __param) {
+				gain = __param;	
+			}
+			
+			public double getgain() {
+				return gain;
+			}
 			public void setkiap(double __param) {
 				kiap = __param;	
 			}

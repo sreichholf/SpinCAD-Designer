@@ -41,6 +41,8 @@
 
 		private LogCADBlock gCB;
 		// declare the controls
+			JSlider multiplierSlider;
+			JLabel  multiplierLabel;	
 
 		public LogControlPanel(LogCADBlock genericCADBlock) {
 		
@@ -53,6 +55,15 @@
 				frame.setTitle("Log");
 				frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 
+			
+			multiplierSlider = new JSlider(JSlider.HORIZONTAL, (int)(0.001 * 1000.0),(int) (0.99999 * 1000.0), (int) (gCB.getmultiplier() * 1000.0));
+				multiplierSlider.addChangeListener(new LogSliderListener());
+				multiplierLabel = new JLabel();
+				updatemultiplierLabel();
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(multiplierLabel);
+				frame.add(Box.createRigidArea(new Dimension(5,4)));			
+				frame.getContentPane().add(multiplierSlider);		
 				frame.addWindowListener(new MyWindowListener());
 				frame.setVisible(true);		
 				frame.pack();
@@ -66,6 +77,10 @@
 		// add change listener for Sliders 
 		class LogSliderListener implements ChangeListener { 
 		public void stateChanged(ChangeEvent ce) {
+			if(ce.getSource() == multiplierSlider) {
+				gCB.setmultiplier((double) (multiplierSlider.getValue()/1000.0));
+				updatemultiplierLabel();
+			}
 			}
 		}
 
@@ -86,6 +101,9 @@
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		}
+		private void updatemultiplierLabel() {
+		multiplierLabel.setText("Log_Multiplier " + String.format("%4.3f", gCB.getmultiplier()));		
+		}		
 		
 		class MyWindowListener implements WindowListener
 		{

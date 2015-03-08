@@ -5,6 +5,9 @@
 @controlInput input1 LF_Loss
 @controlInput input2 HF_Loss
 
+equ gain 0.5 
+@sliderLabel gain Input_Gain 0.01 1.0 0.5 10000.0 2 
+
 ;plate reverb, lush (large), stereo
 ;characterized by very high density,
 ;explosive initial sound, large
@@ -70,7 +73,7 @@ wrax	ksl,0		;low pass shelf
 
 ;now do input all passes, leave headroom:
 
-rdax	input,0.25	
+rdax	input, gain	
 rda	api1l#,kapi
 wrap	api1l,-kapi
 rda	api2l#,kapi

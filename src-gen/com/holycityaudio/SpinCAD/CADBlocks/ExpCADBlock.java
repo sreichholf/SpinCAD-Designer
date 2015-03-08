@@ -29,6 +29,7 @@
 			private static final long serialVersionUID = 1L;
 			private ExpControlPanel cp = null;
 			
+			private double multiplier = 0.5;
 			private int output1;
 
 			public ExpCADBlock(int x, int y) {
@@ -38,6 +39,7 @@
 				addControlInputPin(this, "Control_Input");
 				addControlOutputPin(this, "Control_Output");
 			// if any control panel elements declared, set hasControlPanel to true
+						hasControlPanel = true;
 						}
 		
 			// In the event there are parameters editable by control panel
@@ -69,11 +71,11 @@
 				input = sp.getRegister();
 			}
 			
-			
 			// finally, generate the instructions
 			output1 = sfxb.allocateReg();
 			if(this.getPin("Input").isConnected() == true) {
 			sfxb.readRegister(input, 1);
+			sfxb.exp(multiplier, 0.5);
 			sfxb.writeRegister(output1, 0);
 			this.getPin("Control_Output").setRegister(output1);
 			}
@@ -82,4 +84,11 @@
 			}
 			
 			// create setters and getter for control panel variables
+			public void setmultiplier(double __param) {
+				multiplier = __param;	
+			}
+			
+			public double getmultiplier() {
+				return multiplier;
+			}
 		}	
